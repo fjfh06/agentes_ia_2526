@@ -1,0 +1,12 @@
+curl -I -X GET "https://jsonplaceholder.typicode.com/users/1"
+
+curl -X POST "https://reqres.in/api/users" \
+-H "Content-Type:application/json" \
+-H "x-api-key: reqres-free-v1" \
+-d '{"name": "Javi", "job": "estudiante"}'
+
+curl -X POST "https://reqres.in/api/login" -H "Content-Type:application/json" -H "x-api-key: reqres-free-v1" -d '{"email": "eve.holt@reqres.in", "password": "mateomati"}'
+
+curl -X GET "https://reqres.in/api/users/2" \
+-H "x-api-key: reqres-free-v1" \
+-H "Authorization: Bearer QpwL5tke4Pnpja7X4" | jq

@@ -9,13 +9,13 @@
 - [x] Visual studio code
 
 ## Estructura del proyecto
-- [] Crear carpeta src
+- [x] Crear carpeta src
 - [x] Crear carpeta scripts
 - [x] Crear fichero package.json
-- [] Crear el fichero .gitignore
-- [] He realizado conexion con GitHub de este proyecto
+- [x] Crear el fichero .gitignore
+- [x] He realizado conexion con GitHub de este proyecto
 
 ## Scripts de validación
 
 - [x] He creado scripts de validacion (validate)
-- [] He creado scripts de test
+- [x] He creado scripts de test
