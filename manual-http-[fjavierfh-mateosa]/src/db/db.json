@@ -1,0 +1,128 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "María García López",
+      "email": "maria.garcia@email.com",
+      "enrollmentDate": "2024-09-15",
+      "active": true,
+      "level": "intermediate"
+    },
+    {
+      "id": 2,
+      "name": "Carlos Rodríguez Martín",
+      "email": "carlos.rodriguez@email.com",
+      "enrollmentDate": "2024-10-01",
+      "active": true,
+      "level": "beginner"
+    },
+    {
+      "id": 3,
+      "name": "Ana Fernández Silva",
+      "email": "ana.fernandez@email.com",
+      "enrollmentDate": "2024-08-20",
+      "active": false,
+      "level": "advanced"
+    },
+    {
+      "id": 4,
+      "name": "David Sánchez Torres",
+      "email": "david.sanchez@email.com",
+      "enrollmentDate": "2024-09-10",
+      "active": true,
+      "level": "intermediate"
+    },
+    {
+      "id": 5,
+      "name": "Laura Martínez Ruiz",
+      "email": "laura.martinez@email.com",
+      "enrollmentDate": "2024-09-25",
+      "active": true,
+      "level": "beginner"
+    },
+    {
+      "id": 6,
+      "name": "Javier López Gómez",
+      "email": "javier.lopez@email.com",
+      "enrollmentDate": "2024-07-15",
+      "active": true,
+      "level": "advanced"
+    },
+    {
+      "id": 7,
+      "name": "Elena Díaz Moreno",
+      "email": "elena.diaz@email.com",
+      "enrollmentDate": "2024-09-05",
+      "active": false,
+      "level": "intermediate"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Desarrollo Web Full Stack",
+      "instructor": "Prof. Roberto Álvarez",
+      "duration": "120 horas",
+      "level": "intermediate",
+      "category": "Web Development"
+    },
+    {
+      "id": 2,
+      "title": "Introducción a Python",
+      "instructor": "Prof. Carmen Jiménez",
+      "duration": "60 horas",
+      "level": "beginner",
+      "category": "Programming"
+    },
+    {
+      "id": 3,
+      "title": "Machine Learning Avanzado",
+      "instructor": "Prof. Miguel Serrano",
+      "duration": "150 horas",
+      "level": "advanced",
+      "category": "Artificial Intelligence"
+    },
+    {
+      "id": 4,
+      "title": "APIs RESTful con Node.js",
+      "instructor": "Prof. Isabel Navarro",
+      "duration": "80 horas",
+      "level": "intermediate",
+      "category": "Backend Development"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "courseId": 1,
+      "enrollmentDate": "2024-09-15",
+      "progress": 45,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "studentId": 2,
+      "courseId": 2,
+      "enrollmentDate": "2024-10-01",
+      "progress": 20,
+      "completed": false
+    },
+    {
+      "id": 3,
+      "studentId": 4,
+      "courseId": 1,
+      "enrollmentDate": "2024-09-10",
+      "progress": 60,
+      "completed": false
+    },
+    {
+      "id": 4,
+      "studentId": 6,
+      "courseId": 3,
+      "enrollmentDate": "2024-07-15",
+      "progress": 100,
+      "completed": true
+    }
+  ]
+}

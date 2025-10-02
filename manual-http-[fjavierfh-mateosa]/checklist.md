@@ -6,9 +6,9 @@
 - [] Crear proyecto (Francisco Javier)
 - [] Instalar dependencias (Francisco Javier)
 - [] Configurar package.json (Mateo)
-- [] Crear estructura de carpetas 
-- [] Crear archivos de configuracion 
-- [] Importar la Base de Datos (db.json)
+- [] Crear estructura de carpetas (Mateo)
+- [] Crear archivos de configuracion (Mateo)
+- [] Importar la Base de Datos (db.json) (Francisco Javier)
 
 ### Parte 2 (Script CRUD con funciones js)
 - [] Crear el archivo crud-curl.js
