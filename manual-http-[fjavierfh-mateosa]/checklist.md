@@ -10,7 +10,7 @@
 - [] Crear archivos de configuracion (Mateo)
 - [] Importar la Base de Datos (db.json) (Francisco Javier)
 
-### Parte 2 (Script CRUD con funciones js)
+### Parte 2 (Script CRUD con funciones js) (Mateo)
 - [] Crear el archivo crud-curl.js
 - [] Crear funciones
     - [] createStudent(studentData)
@@ -21,7 +21,7 @@
     - [] deleteStudent(id)
 - [] Ejecutar el script crud:curl
 
-### Parte 3 (Documentacion CRUD con CURL)
+### Parte 3 (Documentacion CRUD con CURL) (Mateo)
 - [] Documentar en el README las operaciones CRUD
     - [] create
     - [] read all
@@ -35,7 +35,7 @@
     - [] Capturar las respuestas reales
     - [] Documentar las respuestas en el README
 
-### Parte 4 (Thunder Client)
+### Parte 4 (Thunder Client) (Francisco Javier)
 - [] Configuracion
     - [] Crear una coleccion "CRUD, Students, Api"
     - [] Configurar un entorno de variables
@@ -51,7 +51,7 @@
     - [] Explicar como usar Thunder Client en el README
     - [] Incluir las capturas con descripcion
 
-### Parte 5 (REST Client)
+### Parte 5 (REST Client) (Francisco Javier)
 - [] Archivo peticiones-crud.http
 - [] Peticiones requeridas
     - [] CREATE: Crear estudiante
