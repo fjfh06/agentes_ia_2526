@@ -6,6 +6,7 @@
 
 # ---- archivos del sistema
 Thumbs.db
+DS_Store
 
 # ---- dependencias
 node_modules/
@@ -15,4 +16,4 @@ dist/
 build/
 
 # logs
-#npm-debug.log*
+npm-debug.log*

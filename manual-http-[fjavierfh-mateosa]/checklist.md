@@ -3,12 +3,12 @@
 ## Tareas
 
 ### Parte 1 (Configuracion inicial)
-- [] Crear proyecto (Francisco Javier)
-- [] Instalar dependencias (Francisco Javier)
-- [] Configurar package.json (Mateo)
-- [] Crear estructura de carpetas (Mateo)
-- [] Crear archivos de configuracion (Mateo)
-- [] Importar la Base de Datos (db.json) (Francisco Javier)
+- [x] Crear proyecto (Francisco Javier)
+- [x] Instalar dependencias (Francisco Javier)
+- [x] Configurar package.json (Mateo)
+- [x] Crear estructura de carpetas (Mateo)
+- [x] Crear archivos de configuracion (Mateo)
+- [x] Importar la Base de Datos (db.json) (Francisco Javier)
 
 ### Parte 2 (Script CRUD con funciones js) (Mateo)
 - [] Crear el archivo crud-curl.js
