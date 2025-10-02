@@ -1,0 +1,19 @@
+### -------VARIABLES-------
+@baseUrl=https://jsonplaceholder.typicode.com
+@ContentType = application/json
+
+### ------------------
+###         GET
+### ------------------
+
+GET {{baseUrl}}/posts HTTP/1.1
+
+### crear un post y capturar la respuesta:
+POST {{baseUrl}}/posts HTTP/1.1
+Content-Type: {{ContentType}}
+
+{
+  "title": "Titulo del POST de ejemplo",
+  "body": "Contenido",
+  "userId": 1
+}
