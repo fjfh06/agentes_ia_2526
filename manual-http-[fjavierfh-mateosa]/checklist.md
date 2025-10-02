@@ -3,11 +3,11 @@
 ## Tareas
 
 ### Parte 1 (Configuracion inicial)
-- [] Crear proyecto
-- [] Instalar dependencias
-- [] Configurar package.json
-- [] Crear estructura de carpetas
-- [] Crear archivos de configuracion
+- [] Crear proyecto (Francisco Javier)
+- [] Instalar dependencias (Francisco Javier)
+- [] Configurar package.json (Mateo)
+- [] Crear estructura de carpetas 
+- [] Crear archivos de configuracion 
 - [] Importar la Base de Datos (db.json)
 
 ### Parte 2 (Script CRUD con funciones js)
@@ -50,3 +50,25 @@
 - [] Documentacion
     - [] Explicar como usar Thunder Client en el README
     - [] Incluir las capturas con descripcion
+
+### Parte 5 (REST Client)
+- [] Archivo peticiones-crud.http
+- [] Peticiones requeridas
+    - [] CREATE: Crear estudiante
+    - [] READ: Todos los estudiantes
+    - [] READ: Estudiante por ID
+    - [] READ: Filtrar estudiantes activos
+    - [] READ: Filtrar por nivel
+    - [] UPDATE: Actualizar estudiante completo (PUT)
+    - [] PATCH: Actualizar campo específico
+    - [] DELETE: Eliminar estudiante
+- [] Probar las peticiones desde VSCode y comprobar que funcionan
+
+### Parte 6 (Script de validación)
+- [] Crear un script validate.sh que verifique la existencia de todo lo realizado en el proyecto
+- [] Configuración del script
+    - [] Dar permisos de ejecución
+    - [] Verificar que funciona desde terminal
+
+### Parte 7 (Checklist)
+- [x] Creación de la checklist (Francisco Javier y Mateo)
