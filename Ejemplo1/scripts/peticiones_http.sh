@@ -31,12 +31,6 @@ curl -s -X PUT $API_URL/11 \
   }' | jq .
 echo -e "\n"
 
-echo "### PATCH: Modificar solo el titulo (id=11)"
-curl -s -X PATCH $API_URL/11 \
-  -H "Content-Type: application/json" \
-  -d '{"title": "DDD by Eric Evans"}' | jq .
-echo -e "\n"
-
 echo "### DELETE: Eliminar el libro (id=11)"
 curl -s -X DELETE $API_URL/11
 echo -e "\n"
