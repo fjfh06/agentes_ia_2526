@@ -3,7 +3,6 @@
 Este proyecto demuestra el uso de una API REST con un CRUD de libros y autores.  
 
 ## Ejercicio 1: CRUD con Thunder Client
-- [x] GET de todos los libros
 - [x] GET de un libro por id
 - [x] POST para crear un nuevo libro
 - [x] PUT para actualizar un libro completo
