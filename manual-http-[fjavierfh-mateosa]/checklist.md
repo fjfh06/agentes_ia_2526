@@ -11,7 +11,7 @@
 - [x] Importar la Base de Datos (db.json) (Francisco Javier)
 
 ### Parte 2 (Script CRUD con funciones js) (Mateo)
-- [] Crear el archivo crud-curl.js
+- [x] Crear el archivo crud-curl.js
 - [] Crear funciones
     - [] createStudent(studentData)
     - [] readAllStudents()
