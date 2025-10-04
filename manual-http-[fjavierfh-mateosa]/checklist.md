@@ -12,13 +12,13 @@
 
 ### Parte 2 (Script CRUD con funciones js) (Mateo)
 - [x] Crear el archivo crud-curl.js
-- [] Crear funciones
-    - [] createStudent(studentData)
-    - [] readAllStudents()
-    - [] readStudentById(id)
-    - [] updateStudent(id, studentData)
-    - [] patchStudent(id, partialData)
-    - [] deleteStudent(id)
+- [x] Crear funciones
+    - [x] createStudent(studentData)
+    - [x] readAllStudents()
+    - [x] readStudentById(id)
+    - [x] updateStudent(id, studentData)
+    - [x] patchStudent(id, partialData)
+    - [x] deleteStudent(id)
 - [] Ejecutar el script crud:curl
 
 ### Parte 3 (Documentacion CRUD con CURL) (Mateo)
