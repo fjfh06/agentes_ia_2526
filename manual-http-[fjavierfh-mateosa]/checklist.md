@@ -19,20 +19,20 @@
     - [x] updateStudent(id, studentData)
     - [x] patchStudent(id, partialData)
     - [x] deleteStudent(id)
-- [] Ejecutar el script crud:curl
+- [x] Ejecutar el script crud:curl
 
 ### Parte 3 (Documentacion CRUD con CURL) (Mateo)
 - [] Documentar en el README las operaciones CRUD
-    - [] create
+    - [x] create
     - [] read all
     - [] read by id
     - [] update
     - [] patch
     - [] delete
 - [] Pruebas reales
-    - [] Levantar json-server
-    - [] Ejecutar cada comando curl generado por tu script
-    - [] Capturar las respuestas reales
+    - [x] Levantar json-server
+    - [x] Ejecutar cada comando curl generado por tu script
+    - [x] Capturar las respuestas reales
     - [] Documentar las respuestas en el README
 
 ### Parte 4 (Thunder Client) (Francisco Javier)

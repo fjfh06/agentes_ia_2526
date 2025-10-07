@@ -29,14 +29,14 @@ const readAllStudents = () => console.log(`curl -i -X GET ${BASE_URL}/students\n
  * @author Mateo Sáez
  * Esta función recibe como parámetro un id de un estuante, y muestra por consola el comando curl que nos permitiría obtener
  * los datos del estudiante que contenga el mismo id que el parámetro
- * @param {number} id - el id que identifica a cada estudiante
+ * @param {String} id - el id que identifica a cada estudiante
  */
-const readStudentById = (id) => console.log(`curl -i -X GET ${BASE_URL}/students/${Number(id)}\n`);
+const readStudentById = (id) => console.log(`curl -i -X GET ${BASE_URL}/students/${id}\n`);
 
 /**
  * Esta función recibe como parámetros el id de un estudiante y toda su información. 
  * La información se puede cambiar ya que muestra por consola el comando curl de actualizar un objeto completo. 
- * @param {Number} id - el id que identifica a cada estudiante
+ * @param {String} id - el id que identifica a cada estudiante
  * @param {Object} studentData 
  */
 const updateStudent = (id,studentData) => {
@@ -46,7 +46,7 @@ const updateStudent = (id,studentData) => {
 
 /**
  * 
- * @param {Number} id - el id que identifica a cada estudiante
+ * @param {String} id - el id que identifica a cada estudiante
  * @param {Object} partialData - algunos campos que se deseen modificar
  */
 const patchStudent = (id,partialData) => {
@@ -66,8 +66,8 @@ const deleteStudent = (id) => {
 console.log("Inicio del script CRUD con CURL:");
 
 createStudent({"id": "8",
-      "name": "Pepe Pérez Benítez",
-      "email": "peperez@email.com",
+      "name": "Pepe Llobregat Sanz",
+      "email": "pepellobre@email.com",
       "enrollmentDate": "2024-10-04",
       "active": true,
       "level": "beginner"});
