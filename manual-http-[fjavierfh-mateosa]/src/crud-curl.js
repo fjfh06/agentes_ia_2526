@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 //creamos la BASE_URL
-const BASE_URL = `${process.env.BASE_URL}:${process.env.PORT}`;
+const BASE_URL = `${process.env.API_BASE_URL}:${process.env.PORT}`;
 
 //Escribimos las funciones crud que deben imprimir por consola el comando curl
 
