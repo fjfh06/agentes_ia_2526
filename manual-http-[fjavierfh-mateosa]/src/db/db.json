@@ -55,6 +55,14 @@
       "enrollmentDate": "2024-09-05",
       "active": false,
       "level": "intermediate"
+    },
+    {
+      "id": 8,
+      "name": "Pepe P�rez Ben�tez",
+      "email": "peperez@email.com",
+      "enrollmentDate": "2024-10-04",
+      "active": true,
+      "level": "beginner"
     }
   ],
   "courses": [

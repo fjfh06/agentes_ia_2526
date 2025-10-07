@@ -41,7 +41,7 @@ const readStudentById = (id) => console.log(`curl -i -X GET ${BASE_URL}/students
  */
 const updateStudent = (id,studentData) => {
     const data = JSON.stringify(studentData);
-    console.log(`curl -i -X PUT ${BASE_URL}/students/${Number(id)} -H "Content-Type: application/json" -d '${data}'\n`);
+    console.log(`curl -i -X PUT ${BASE_URL}/students/${id} -H "Content-Type: application/json" -d '${data}'\n`);
 }
 
 /**
@@ -51,21 +51,21 @@ const updateStudent = (id,studentData) => {
  */
 const patchStudent = (id,partialData) => {
     const data = JSON.stringify(partialData);
-    console.log(`curl -i -X PUT ${BASE_URL}/students/${Number(id)} -H "Content-Type: application/json" -d '${data}'\n`)
+    console.log(`curl -i -X PATCH ${BASE_URL}/students/${id} -H "Content-Type: application/json" -d '${data}'\n`)
 }
 
 /**
  * Esta función recibe un id como parámetro y muestra por consola el comando curl para eliminar un estudiante que coincida con el id pasado.
- * @param {Number} id 
+ * @param {String} id 
  */
 const deleteStudent = (id) => {
-    console.log(`curl -i -X DELETE ${BASE_URL}/students/${Number(id)}`)
+    console.log(`curl -i -X DELETE ${BASE_URL}/students/${id}`)
 }
 
 //Llamadas a las funciones 
 console.log("Inicio del script CRUD con CURL:");
 
-createStudent({"id": 8,
+createStudent({"id": "8",
       "name": "Pepe Pérez Benítez",
       "email": "peperez@email.com",
       "enrollmentDate": "2024-10-04",
@@ -76,9 +76,9 @@ readAllStudents();
 
 readStudentById(2);
 
-updateStudent(8,{"id": 8,
-      "name": "Pepe Pérez Benítez",
-      "email": "peperez@email.com",
+updateStudent(8,{"id": "8",
+      "name": "Pepe Llobregat Sanz",
+      "email": "pepellobre@email.com",
       "enrollmentDate": "2024-10-04",
       "active": true,
       "level": "intermediate"});
