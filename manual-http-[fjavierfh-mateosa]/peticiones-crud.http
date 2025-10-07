@@ -1,0 +1,85 @@
+### ============================
+###     VARIABLES GLOBALES
+### ============================
+@baseUrl = http://localhost
+@port = 4000
+@apiUrl = {{baseUrl}}:{{port}}
+@contentType = application/json
+###Como uso mucho el id para hacer pruebas crud lo guardo en variable
+@idPrueba=20
+
+
+### ============================
+###     CREATE (POST)
+### ============================
+### ➕ Crear un nuevo estudiante
+POST {{apiUrl}}/students
+Content-Type: {{contentType}}
+
+{
+    "id": "{{idPrueba}}",
+    "name": "Mateo Garcia Contreras",
+    "email": "mateo.garcia@email.com",
+    "enrollmentDate": "2025-09-15",
+    "active": false,
+    "level": "advanced"
+}
+
+
+### ============================
+###     READ (GET)
+### ============================
+
+### 📋 Obtener todos los estudiantes
+GET {{apiUrl}}/students
+
+###
+
+### 🔍 Obtener estudiante por ID (ejemplo: id = 3)
+GET {{apiUrl}}/students/3
+
+###
+
+### ✅ Filtrar estudiantes activos
+GET {{apiUrl}}/students?active=true
+
+###
+
+### 📊 Filtrar estudiantes por nivel (ejemplo: intermediate)
+GET {{apiUrl}}/students?level=intermediate
+
+
+### ============================
+###     UPDATE (PUT)
+### ============================
+### 🔄 Actualizar un estudiante completo (ejemplo: id = 8)
+PUT {{apiUrl}}/students/{{idPrueba}}
+Content-Type: {{contentType}}
+
+{
+    "id": "{{idPrueba}}",
+    "name": "Carlos Rodriguez Martin",
+    "email": "carlos.rodriguez@email.com",
+    "enrollmentDate": "2024-10-01",
+    "active": false,
+    "level": "beginner"
+}
+
+
+### ============================
+###     PATCH (PARCIAL)
+### ============================
+### ✏ Actualizar solo un campo (ejemplo: cambiar estado activo de id = 8)
+PATCH {{apiUrl}}/students/{{idPrueba}}
+Content-Type: {{contentType}}
+
+{
+    "active": true
+}
+
+
+### ============================
+###     DELETE
+### ============================
+### 🗑 Eliminar estudiante por ID (ejemplo: id = 8)
+DELETE {{apiUrl}}/students/{{idPrueba}}

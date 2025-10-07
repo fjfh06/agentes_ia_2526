@@ -52,17 +52,17 @@
     - [] Incluir las capturas con descripcion
 
 ### Parte 5 (REST Client) (Francisco Javier)
-- [] Archivo peticiones-crud.http
-- [] Peticiones requeridas
-    - [] CREATE: Crear estudiante
-    - [] READ: Todos los estudiantes
-    - [] READ: Estudiante por ID
-    - [] READ: Filtrar estudiantes activos
-    - [] READ: Filtrar por nivel
-    - [] UPDATE: Actualizar estudiante completo (PUT)
-    - [] PATCH: Actualizar campo específico
-    - [] DELETE: Eliminar estudiante
-- [] Probar las peticiones desde VSCode y comprobar que funcionan
+- [x] Archivo peticiones-crud.http
+- [x] Peticiones requeridas
+    - [x] CREATE: Crear estudiante
+    - [x] READ: Todos los estudiantes
+    - [x] READ: Estudiante por ID
+    - [x] READ: Filtrar estudiantes activos
+    - [x] READ: Filtrar por nivel
+    - [x] UPDATE: Actualizar estudiante completo (PUT)
+    - [x] PATCH: Actualizar campo específico
+    - [x] DELETE: Eliminar estudiante
+- [x] Probar las peticiones desde VSCode y comprobar que funcionan
 
 ### Parte 6 (Script de validación)
 - [] Crear un script validate.sh que verifique la existencia de todo lo realizado en el proyecto
