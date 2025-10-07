@@ -26,3 +26,145 @@ Se envía el header "Content-Type: application/json" porque es obligatorio poner
 ### Explicación del código de estado HTTP:
 
 Se envía un 201 por el -i y nos indica que el estudiante, en este caso, Pepe Llobregat Sanz, se ha creado correctamente con todos los datos que le hemos enviado.
+
+## Leer los datos de todos los estudiantes con el comando GET
+Se envía una solicitud GET al endpoint /students para recuperar la lista completa de todos los estudiantes almacenados en la base de datos. Es una operación de lectura que no modifica el estado del servidor.
+
+### El comando es: 
+```bash
+    curl -i -X GET http://localhost:4000/students
+```
+
+### El comando podemos dividirlo en varias secciones: 
+
+curl: Se usa este comando para realizar peticiones HTTP.
+Para ello se usan algunas flags:
+    -i: Indica que debe mostrar los encabezados de la respuesta HTTP junto con un cuerpo.
+    -X: Nos indica que debemos seleccionar un método CURL. Si no se incluyera esta flag, se usaría por defecto el método GET.
+    -H: Permite añadir encabezados a nuestra solicitud. En este caso no hay encabezados ya que en la lectura no es necesario
+    -d: Sirve para definir el cuerpo de la solicitud. Si usamos esta flag, el comando curl pasa a utilizar por defecto el método POST.
+GET: Es el método que utilizaremos para esta petición, porque es el utilizado para recuperar datos que hay en el servidor. Es el por defecto del comando curl
+
+### Respuesta real HTTP
+
+![imagen CreateStudent](images/ReadAllStudents1.png)
+![imagen CreateStudent](images/ReadAllStudents2.png)
+
+
+### Explicación del código de estado HTTP:
+
+Se devuelve un código 200 y eso nos indica que todo ha funcionado y los datos existen, por eso se muestran en el cuerpo de la respuesta.
+
+## Leer los datos de un solo estudiante con el comando GET
+Se envía una solicitud GET al endpoint /students para recuperar los datos de un solo estudiante. Debemos proporcionar el ID de ese estudiante. Es una operación de lectura que no modifica el estado del servidor.
+
+### El comando es: 
+```bash
+    curl -i -X GET http://localhost:4000/students/2
+```
+
+### El comando podemos dividirlo en varias secciones: 
+
+curl: Se usa este comando para realizar peticiones HTTP.
+Para ello se usan algunas flags:
+    -i: Indica que debe mostrar los encabezados de la respuesta HTTP junto con un cuerpo.
+    -X: Nos indica que debemos seleccionar un método CURL. Si no se incluyera esta flag, se usaría por defecto el método GET.
+    -H: Permite añadir encabezados a nuestra solicitud. En este caso no hay encabezados ya que en la lectura no es necesario
+    -d: Sirve para definir el cuerpo de la solicitud. Si usamos esta flag, el comando curl pasa a utilizar por defecto el método POST.
+GET: Es el método que utilizaremos para esta petición, porque es el utilizado para recuperar datos que hay en el servidor. Es el por defecto del comando curl
+
+http://localhost:4000/students/2 es el enlace que usaremos para realizar la operación. En este caso, al endpoint se le añade un 2 para especificar el id que queremos
+
+### Respuesta real HTTP
+
+![imagen CreateStudent](images/ReadStudentById.png)
+
+
+### Explicación del código de estado HTTP:
+
+Se devuelve un código 200 y eso nos indica que todo ha funcionado y los datos existen, por eso se muestran en el cuerpo de la respuesta.
+
+## Actualizar todos los campos de un estudiante con el comando PUT
+Se envía una solicitud PUT la cual nos permitirá modificar un estudiante existente por completo.
+
+### El comando es: 
+```bash
+    curl -i -X PUT http://localhost:4000/students/8 -H "Content-Type: application/json" -d '{"id":"8","name":"Pepe Llobregat Sanz","email":"pepellobre@email.com","enrollmentDate":"2024-10-04","active":true,"level":"intermediate"}'
+```
+
+### El comando podemos dividirlo en varias secciones: 
+
+curl: Se usa este comando para realizar peticiones HTTP.
+Para ello se usan algunas flags:
+    -i: Indica que debe mostrar los encabezados de la respuesta HTTP junto con un cuerpo.
+    -X: Nos indica que debemos seleccionar un método CURL. Si no se incluyera esta flag, se usaría por defecto el método GET.
+    -H: Permite añadir encabezados a nuestra solicitud. En este caso: "Content-Type: application/json" nos indica que el cuerpo de nuestra petición está en JSON.
+    -d: Sirve para definir el cuerpo de la solicitud. Si usamos esta flag, el comando curl pasa a utilizar por defecto el método POST, lo que requiere el flag -X si se quiere usar otro método curl. El cuerpo que le pasamos es el de un estudiante existente para poder modificarlo.
+PUT: Es el método que utilizaremos para esta petición, porque nos permite modificar por completo un objeto que le pasemos como parámetro.
+
+
+### Respuesta real HTTP
+
+![imagen CreateStudent](images/PutStudent.png)
+
+
+### Explicación del código de estado HTTP:
+
+Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido modificado.
+
+## Actualizar un campo de un estudiante con el comando PATCH
+
+Se envía una solicitud PATCH al endpoint /students con el id del estudiante que queremos modificar parcialmente. Para ello, necesitaremos el id de ese estudiante y algunos de los campos que deseemos.
+
+### El comando es: 
+```bash
+    curl -i -X PATCH http://localhost:4000/students/8 -H "Content-Type: application/json" -d '{"active":false}'
+```
+
+### El comando podemos dividirlo en varias secciones: 
+
+curl: Se usa este comando para realizar peticiones HTTP.
+Para ello se usan algunas flags:
+    -i: Indica que debe mostrar los encabezados de la respuesta HTTP junto con un cuerpo.
+    -X: Nos indica que debemos seleccionar un método CURL. Si no se incluyera esta flag, se usaría por defecto el método GET.
+    -H: Permite añadir encabezados a nuestra solicitud. En este caso: "Content-Type: application/json" nos indica que el cuerpo de nuestra petición está en JSON.
+    -d: Sirve para definir el cuerpo de la solicitud. Si usamos esta flag, el comando curl pasa a utilizar por defecto el método POST, lo que requiere el flag -X si se quiere usar otro método curl. El cuerpo que le pasamos es el de un estudiante existente para poder modificarlo.
+PATCH: Es el método que utilizaremos para esta petición, porque nos permite modificar los campos de un objeto que le pasemos como parámetro.
+
+
+### Respuesta real HTTP
+
+![imagen CreateStudent](images/PatchStudent.png)
+
+
+### Explicación del código de estado HTTP:
+
+Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido modificado en los campos seleccionados.
+
+## Eliminar un estudiante con el comando DELETE
+
+Se envía una solicitud DELETE al endpoint /students con el id del estudiante que queremos eliminar.
+
+### El comando es: 
+```bash
+    curl -i -X PATCH http://localhost:4000/students/8 -H "Content-Type: application/json" -d '{"active":false}'
+```
+
+### El comando podemos dividirlo en varias secciones: 
+
+curl: Se usa este comando para realizar peticiones HTTP.
+Para ello se usan algunas flags:
+    -i: Indica que debe mostrar los encabezados de la respuesta HTTP junto con un cuerpo, lo que nos permite revisar el código de estado.
+    -X: Nos indica que debemos seleccionar un método CURL. Si no se incluyera esta flag, se usaría por defecto el método GET.
+    -H: Permite añadir encabezados a nuestra solicitud. En este caso no se pone ningún encabezado, dado que no 
+    -d: Sirve para definir el cuerpo de la solicitud. Si usamos esta flag, el comando curl pasa a utilizar por defecto el método POST, lo que requiere el flag -X si se quiere usar otro método curl. El cuerpo que le pasamos es el de un estudiante existente para poder modificarlo.
+DELETE: Es el método que utilizaremos para esta petición, porque nos permite eliminar permanentemente un estudiante dado un id que se pasa como parámetro.
+
+### Respuesta real HTTP
+
+![imagen CreateStudent](images/DeleteStudent.png)
+
+
+### Explicación del código de estado HTTP:
+
+Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido eliminado con éxito de la base de datos.
