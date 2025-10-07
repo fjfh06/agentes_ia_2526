@@ -16,14 +16,14 @@ const BASE_URL = `${process.env.API_BASE_URL}:${process.env.PORT}`;
 const createStudent = (studentData)=>{
     const data = JSON.stringify(studentData) //Consultado en Stack Overflow para transformar el parámetro en un string json (para su correcto funcionamiento con el comando curl)
     console.log("Crear un nuevo estudiante:")
-    console.log(`curl -X POST ${BASE_URL} -H "Content-Type: application/json" -d '${data}'\n`);
+    console.log(`curl -i -X POST ${BASE_URL}/students -H "Content-Type: application/json" -d '${data}'\n`);
 };
 
 /**
  * @author Mateo Sáez
  * Esta función muestra por consola el comando curl que permite obtener los datos de todos los estudiantes
  */
-const readAllStudents = () => console.log(`curl -X GET ${BASE_URL}\n`);
+const readAllStudents = () => console.log(`curl -i -X GET ${BASE_URL}/students\n`);
 
 /**
  * @author Mateo Sáez
@@ -31,7 +31,7 @@ const readAllStudents = () => console.log(`curl -X GET ${BASE_URL}\n`);
  * los datos del estudiante que contenga el mismo id que el parámetro
  * @param {number} id - el id que identifica a cada estudiante
  */
-const readStudentById = (id) => console.log(`curl -X GET ${BASE_URL}/${Number(id)}\n`);
+const readStudentById = (id) => console.log(`curl -i -X GET ${BASE_URL}/students/${Number(id)}\n`);
 
 /**
  * Esta función recibe como parámetros el id de un estudiante y toda su información. 
@@ -41,7 +41,7 @@ const readStudentById = (id) => console.log(`curl -X GET ${BASE_URL}/${Number(id
  */
 const updateStudent = (id,studentData) => {
     const data = JSON.stringify(studentData);
-    console.log(`curl -X PUT ${BASE_URL}/${Number(id)} -H "Content-Type: application/json" -d '${data}'\n`);
+    console.log(`curl -i -X PUT ${BASE_URL}/students/${Number(id)} -H "Content-Type: application/json" -d '${data}'\n`);
 }
 
 /**
@@ -51,7 +51,7 @@ const updateStudent = (id,studentData) => {
  */
 const patchStudent = (id,partialData) => {
     const data = JSON.stringify(partialData);
-    console.log(`curl -X PUT ${BASE_URL}/${Number(id)} -H "Content-Type: application/json" -d '${data}'\n`)
+    console.log(`curl -i -X PUT ${BASE_URL}/students/${Number(id)} -H "Content-Type: application/json" -d '${data}'\n`)
 }
 
 /**
@@ -59,7 +59,7 @@ const patchStudent = (id,partialData) => {
  * @param {Number} id 
  */
 const deleteStudent = (id) => {
-    console.log(`curl -X DELETE ${BASE_URL}/${Number(id)}`)
+    console.log(`curl -i -X DELETE ${BASE_URL}/students/${Number(id)}`)
 }
 
 //Llamadas a las funciones 
