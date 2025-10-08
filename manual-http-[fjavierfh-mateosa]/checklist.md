@@ -36,17 +36,17 @@
     - [x] Documentar las respuestas en el README
 
 ### Parte 4 (Thunder Client) (Francisco Javier)
-- [] Peticiones
-    - [] Create Student (POST)
-    - [] GET All Students (GET)
-    - [] GET Student By Id (GET)
-    - [] Update Student (PUT)
-    - [] Patch Student (PATCH)
-    - [] Delete Student (DELETE)
-- [] Capturas de pantalla
-- [] Documentacion
-    - [] Explicar como usar Thunder Client en el README
-    - [] Incluir las capturas con descripcion
+- [x] Peticiones
+    - [x] Create Student (POST)
+    - [x] GET All Students (GET)
+    - [x] GET Student By Id (GET)
+    - [x] Update Student (PUT)
+    - [x] Patch Student (PATCH)
+    - [x] Delete Student (DELETE)
+- [x] Capturas de pantalla
+- [x] Documentacion
+    - [x] Explicar como usar Thunder Client en el README
+    - [x] Incluir las capturas con descripcion
 
 ### Parte 5 (REST Client) (Francisco Javier)
 - [x] Archivo peticiones-crud.http

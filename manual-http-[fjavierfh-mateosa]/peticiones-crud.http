@@ -6,7 +6,7 @@
 @apiUrl = {{baseUrl}}:{{port}}
 @contentType = application/json
 ###Como uso mucho el id para hacer pruebas crud lo guardo en variable
-@idPrueba=20
+@idPrueba=8
 
 
 ### ============================

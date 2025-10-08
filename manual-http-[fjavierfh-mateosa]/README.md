@@ -168,3 +168,129 @@ DELETE: Es el método que utilizaremos para esta petición, porque nos permite e
 ### Explicación del código de estado HTTP:
 
 Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido eliminado con éxito de la base de datos.
+
+
+# Documentacion de operaciones CRUD con Thunder Client
+
+## Peticiones en Thunder Client
+
+En Thunder Client se deben crear las siguientes peticiones:
+
+- **CREATE Student (POST)**
+- **GET All Students (GET)**
+- **GET Student by ID (GET)**
+- **UPDATE Student (PUT)**
+- **PATCH Student (PATCH)**
+- **DELETE Student (DELETE)**
+
+### Pasos para crearlas
+
+1. Abre **Thunder Client** desde Visual Studio Code.  
+2. Pulsa en **New Request**.  
+3. Selecciona el metodo HTTP correspondiente (POST, GET, PUT, PATCH o DELETE).  
+4. Escribe la URL de tu API (por ejemplo: `http://localhost:4000/students`).  
+5. En las peticiones que lo necesiten, selecciona la pestaña **Body**, elige **JSON**, e introduce los datos correspondientes.  
+6. Pulsa **Send** para ejecutar la peticion.  
+
+---
+
+## CREATE Student (POST)
+
+Crea un nuevo estudiante en la base de datos.
+
+**Metodo:** POST  
+**URL:** `http://localhost:4000/students`  
+
+**Body (JSON):**
+```json
+{
+    "id": "20",
+    "name": "Mateo Garcia Contreras",
+    "email": "mateo.garcia@email.com",
+    "enrollmentDate": "2025-09-15",
+    "active": false,
+    "level": "advanced"
+}
+```
+
+**Captura:**  
+![POST Create Student](images/1_ThdCli_CREATE_student.png)
+
+---
+
+## GET All Students (GET)
+
+Obtiene la lista completa de estudiantes.
+
+**Metodo:** GET  
+**URL:** `http://localhost:4000/students`  
+
+**Captura:**  
+![GET All Students](images/2_ThdCli_GET_allStudents.png)
+
+---
+
+## GET Student by ID (GET)
+
+Obtiene la informacion de un estudiante especifico segun su ID.
+
+**Metodo:** GET  
+**URL:** `http://localhost:4000/students/5`  
+
+**Captura:**  
+![GET Student by ID](images/3_ThdCli_GET_StudentById.png)
+
+---
+
+## UPDATE Student (PUT)
+
+Actualiza completamente la informacion de un estudiante existente.
+
+**Metodo:** PUT  
+**URL:** `http://localhost:4000/students/20`  
+
+**Body (JSON):**
+```json
+{
+    "id": "20",
+    "name": "Carlos Rodriguez Martin",
+    "email": "carlos.rodriguez@email.com",
+    "enrollmentDate": "2024-10-01",
+    "active": false,
+    "level": "beginner"
+}
+```
+
+**Captura:**  
+![PUT Update Student](images/4_ThdCli_UPDATE_student.png)
+
+---
+
+## PATCH Student (PATCH)
+
+Modifica parcialmente los datos de un estudiante.
+
+**Metodo:** PATCH  
+**URL:** `http://localhost:4000/students/20`  
+
+**Body (JSON):**
+```json
+{
+    "active": true
+}
+```
+
+**Captura:**  
+![PATCH Student](images/5_ThdCli_PATCH_student.png)
+
+---
+
+## DELETE Student (DELETE)
+
+Elimina un estudiante por su ID.
+
+**Metodo:** DELETE  
+**URL:** `http://localhost:4000/students/20`  
+
+**Captura:**  
+![DELETE Student](images/6_ThdCli_DELETE_student.png)
