@@ -1,4 +1,4 @@
-# Documentación operaciones CRUD
+# Documentación operaciones CRUD con CURL
 
 ## Crear un estudiante con el comando POST
 Se envía una solicitud de tipo POST al servidor para crear un nuevo estudiante con los datos proporcionados, que es un objeto y tiene que pasarse a tipo JSON. Si la solicitud tiene éxito, se añadirá un estudiante nuevo a la base de datos
