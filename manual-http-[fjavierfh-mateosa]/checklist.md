@@ -36,9 +36,6 @@
     - [x] Documentar las respuestas en el README
 
 ### Parte 4 (Thunder Client) (Francisco Javier)
-- [] Configuracion
-    - [] Crear una coleccion "CRUD, Students, Api"
-    - [] Configurar un entorno de variables
 - [] Peticiones
     - [] Create Student (POST)
     - [] GET All Students (GET)
