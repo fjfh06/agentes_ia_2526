@@ -61,7 +61,7 @@
     - [x] DELETE: Eliminar estudiante
 - [x] Probar las peticiones desde VSCode y comprobar que funcionan
 
-### Parte 6 (Script de validación)
+### Parte 6 (Script de validación) 
 - [] Crear un script validate.sh que verifique la existencia de todo lo realizado en el proyecto
 - [] Configuración del script
     - [] Dar permisos de ejecución

@@ -1,7 +1,7 @@
 # Documentación operaciones CRUD con CURL
 
 ## Crear un estudiante con el comando POST
-Se envía una solicitud de tipo POST al servidor para crear un nuevo estudiante con los datos proporcionados, que es un objeto y tiene que pasarse a tipo JSON. Si la solicitud tiene éxito, se añadirá un estudiante nuevo a la base de datos
+Se envía una solicitud de tipo **POST** al servidor para crear un nuevo estudiante con los datos proporcionados, que es un objeto y tiene que pasarse a tipo JSON. Si la solicitud tiene éxito, se añadirá un estudiante nuevo a la base de datos
 
 ### El comando es: 
 ```bash
@@ -21,14 +21,14 @@ Se envía el header "Content-Type: application/json" porque es obligatorio poner
 
 ### Respuesta real HTTP
 
-![imagen CreateStudent](images/CreateStudent.png)
+![imagen CreateStudent](images/1_CURL_CreateStudent.png)
 
 ### Explicación del código de estado HTTP:
 
-Se envía un 201 por el -i y nos indica que el estudiante, en este caso, Pepe Llobregat Sanz, se ha creado correctamente con todos los datos que le hemos enviado.
+Se envía un **201** por el -i y nos indica que el estudiante, en este caso, Pepe Llobregat Sanz, se ha creado correctamente con todos los datos que le hemos enviado.
 
 ## Leer los datos de todos los estudiantes con el comando GET
-Se envía una solicitud GET al endpoint /students para recuperar la lista completa de todos los estudiantes almacenados en la base de datos. Es una operación de lectura que no modifica el estado del servidor.
+Se envía una solicitud **GET** al endpoint /students para recuperar la lista completa de todos los estudiantes almacenados en la base de datos. Es una operación de lectura que no modifica el estado del servidor.
 
 ### El comando es: 
 ```bash
@@ -47,16 +47,16 @@ GET: Es el método que utilizaremos para esta petición, porque es el utilizado 
 
 ### Respuesta real HTTP
 
-![imagen CreateStudent](images/ReadAllStudents1.png)
-![imagen CreateStudent](images/ReadAllStudents2.png)
+![imagen CreateStudent](images/5_CURL_ReadAllStudents1.png)
+![imagen CreateStudent](images/6_CURL_ReadAllStudents2.png)
 
 
 ### Explicación del código de estado HTTP:
 
-Se devuelve un código 200 y eso nos indica que todo ha funcionado y los datos existen, por eso se muestran en el cuerpo de la respuesta.
+Se devuelve un código **200** y eso nos indica que todo ha funcionado y los datos existen, por eso se muestran en el cuerpo de la respuesta.
 
 ## Leer los datos de un solo estudiante con el comando GET
-Se envía una solicitud GET al endpoint /students para recuperar los datos de un solo estudiante. Debemos proporcionar el ID de ese estudiante. Es una operación de lectura que no modifica el estado del servidor.
+Se envía una solicitud **GET** al endpoint /students para recuperar los datos de un solo estudiante. Debemos proporcionar el ID de ese estudiante. Es una operación de lectura que no modifica el estado del servidor.
 
 ### El comando es: 
 ```bash
@@ -77,15 +77,15 @@ http://localhost:4000/students/2 es el enlace que usaremos para realizar la oper
 
 ### Respuesta real HTTP
 
-![imagen CreateStudent](images/ReadStudentById.png)
+![imagen CreateStudent](images/7_CURL_ReadStudentById.png)
 
 
 ### Explicación del código de estado HTTP:
 
-Se devuelve un código 200 y eso nos indica que todo ha funcionado y los datos existen, por eso se muestran en el cuerpo de la respuesta.
+Se devuelve un código **200** y eso nos indica que todo ha funcionado y los datos existen, por eso se muestran en el cuerpo de la respuesta.
 
 ## Actualizar todos los campos de un estudiante con el comando PUT
-Se envía una solicitud PUT la cual nos permitirá modificar un estudiante existente por completo.
+Se envía una solicitud **PUT** la cual nos permitirá modificar un estudiante existente por completo.
 
 ### El comando es: 
 ```bash
@@ -105,16 +105,16 @@ PUT: Es el método que utilizaremos para esta petición, porque nos permite modi
 
 ### Respuesta real HTTP
 
-![imagen CreateStudent](images/PutStudent.png)
+![imagen CreateStudent](images/4_CURL_PutStudent.png)
 
 
 ### Explicación del código de estado HTTP:
 
-Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido modificado.
+Se devuelve un código **200** y eso nos indica que todo ha funcionado y el estudiante ha sido modificado.
 
 ## Actualizar un campo de un estudiante con el comando PATCH
 
-Se envía una solicitud PATCH al endpoint /students con el id del estudiante que queremos modificar parcialmente. Para ello, necesitaremos el id de ese estudiante y algunos de los campos que deseemos.
+Se envía una solicitud **PATCH** al endpoint /students con el id del estudiante que queremos modificar parcialmente. Para ello, necesitaremos el id de ese estudiante y algunos de los campos que deseemos.
 
 ### El comando es: 
 ```bash
@@ -134,16 +134,16 @@ PATCH: Es el método que utilizaremos para esta petición, porque nos permite mo
 
 ### Respuesta real HTTP
 
-![imagen CreateStudent](images/PatchStudent.png)
+![imagen CreateStudent](images/3_CURL_PatchStudent.png)
 
 
 ### Explicación del código de estado HTTP:
 
-Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido modificado en los campos seleccionados.
+Se devuelve un código **200** y eso nos indica que todo ha funcionado y el estudiante ha sido modificado en los campos seleccionados.
 
 ## Eliminar un estudiante con el comando DELETE
 
-Se envía una solicitud DELETE al endpoint /students con el id del estudiante que queremos eliminar.
+Se envía una solicitud **DELETE** al endpoint /students con el id del estudiante que queremos eliminar.
 
 ### El comando es: 
 ```bash
@@ -162,7 +162,7 @@ DELETE: Es el método que utilizaremos para esta petición, porque nos permite e
 
 ### Respuesta real HTTP
 
-![imagen CreateStudent](images/DeleteStudent.png)
+![imagen CreateStudent](images/2_CURL_DeleteStudent.png)
 
 
 ### Explicación del código de estado HTTP:
