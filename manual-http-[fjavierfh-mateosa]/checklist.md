@@ -61,11 +61,11 @@
     - [x] DELETE: Eliminar estudiante
 - [x] Probar las peticiones desde VSCode y comprobar que funcionan
 
-### Parte 6 (Script de validación) 
-- [] Crear un script validate.sh que verifique la existencia de todo lo realizado en el proyecto
-- [] Configuración del script
-    - [] Dar permisos de ejecución
-    - [] Verificar que funciona desde terminal
+### Parte 6 (Script de validación) (Mateo)
+- [x] Crear un script validate.sh que verifique la existencia de todo lo realizado en el proyecto
+- [x] Configuración del script
+    - [x] Dar permisos de ejecución
+    - [x] Verificar que funciona desde terminal
 
 ### Parte 7 (Checklist)
 - [x] Creación de la checklist (Francisco Javier y Mateo)
