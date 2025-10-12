@@ -170,6 +170,16 @@ DELETE: Es el método que utilizaremos para esta petición, porque nos permite e
 Se devuelve un código 200 y eso nos indica que todo ha funcionado y el estudiante ha sido eliminado con éxito de la base de datos.
 
 
+## CAPTURAS DE LA EJECUCIÓN DEL SCRIPT CRUD:CURL
+
+![POST Create Student](images/crud-curl.png)
+![POST Create Student](images/crud-curl2.png)
+Podemos apreciar como al principio de la consola aparece el siguiente comando:
+```bash
+    npm run crud:curl
+```
+El cual nos muestra el comando a ejecutar y el resultado que genera.
+
 # Documentacion de operaciones CRUD con Thunder Client
 
 ## Peticiones en Thunder Client
