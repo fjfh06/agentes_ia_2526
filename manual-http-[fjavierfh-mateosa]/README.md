@@ -304,3 +304,90 @@ Elimina un estudiante por su ID.
 
 **Captura:**  
 ![DELETE Student](images/6_ThdCli_DELETE_student.png)
+
+
+
+
+# Uso de REST API con Operaciones CRUD
+
+A continuacion se muestran ejemplos practicos del uso de una **REST API** para realizar operaciones **CRUD** (Create, Read, Update, Delete) utilizando variables de entorno para hacer las peticiones mas flexibles y reutilizables.
+
+---
+
+## Variables de entorno
+
+Estas variables se definen al inicio del archivo `peticiones-crud.http` para facilitar la configuracion de las peticiones:
+
+```http
+@baseUrl = http://example.com
+@port = 4000
+@apiUrl = {{baseUrl}}:{{port}}
+@contentType = application/json
+@idPrueba = idParaPruebas
+```
+
+**Descripcion de cada variable:**
+- **@baseUrl:** Direccion base del servidor donde se aloja la API.  
+- **@port:** Puerto en el que escucha la API.  
+- **@apiUrl:** URL completa generada a partir de las dos anteriores.  
+- **@contentType:** Tipo de contenido que se enviara (JSON en este caso).  
+- **@idPrueba:** ID que usaremos para las pruebas de los endpoints.
+
+---
+
+## 1. Crear estudiante (CREATE)
+
+### Metodo: `POST`
+
+Ejemplo de peticion para crear un nuevo estudiante.  
+Se especifica el metodo `POST`, la URL base y el cuerpo en formato JSON.
+
+```http
+POST {{apiUrl}}/students
+Content-Type: {{contentType}}
+
+{
+    "id": "{{idPrueba}}",
+    "name": "Mateo Garcia Contreras",
+    "email": "mateo.garcia@email.com",
+    "enrollmentDate": "2025-09-15",
+    "active": false,
+    "level": "advanced"
+}
+```
+
+**Descripcion:**  
+Esta peticion agrega un nuevo estudiante con los datos indicados.  
+El servidor deberia devolver un codigo de estado **201 (Created)** y el objeto del estudiante creado.
+
+**Captura:**  
+![CREATE Student](images/1_ReApi_CREATE_student.png)
+
+---
+
+## 2. Actualizar estudiante (UPDATE)
+
+### Metodo: `PUT`
+
+Ejemplo de peticion para actualizar la informacion de un estudiante existente, usando su ID como parametro en la URL.
+
+```http
+PUT {{apiUrl}}/students/{{idPrueba}}
+Content-Type: {{contentType}}
+
+{
+    "id": "{{idPrueba}}",
+    "name": "Carlos Rodriguez Martin",
+    "email": "carlos.rodriguez@email.com",
+    "enrollmentDate": "2024-10-01",
+    "active": false,
+    "level": "beginner"
+}
+```
+
+**Descripcion:**  
+Esta peticion modifica los datos del estudiante identificado por `idPrueba`.  
+El servidor deberia devolver un codigo **200 (OK)** y el objeto actualizado.
+
+**Captura:**  
+![UPDATE Student](images/2_ReApi_UPDATE_student.png)

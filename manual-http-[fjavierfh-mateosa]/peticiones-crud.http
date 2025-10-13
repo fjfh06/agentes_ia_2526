@@ -12,7 +12,7 @@
 ### ============================
 ###     CREATE (POST)
 ### ============================
-### ➕ Crear un nuevo estudiante
+### Crear un nuevo estudiante
 POST {{apiUrl}}/students
 Content-Type: {{contentType}}
 
@@ -30,29 +30,29 @@ Content-Type: {{contentType}}
 ###     READ (GET)
 ### ============================
 
-### 📋 Obtener todos los estudiantes
+### Obtener todos los estudiantes
 GET {{apiUrl}}/students
 
 ###
 
-### 🔍 Obtener estudiante por ID (ejemplo: id = 3)
+### Obtener estudiante por ID (ejemplo: id = 3)
 GET {{apiUrl}}/students/3
 
 ###
 
-### ✅ Filtrar estudiantes activos
+### Filtrar estudiantes activos
 GET {{apiUrl}}/students?active=true
 
 ###
 
-### 📊 Filtrar estudiantes por nivel (ejemplo: intermediate)
+### Filtrar estudiantes por nivel (ejemplo: intermediate)
 GET {{apiUrl}}/students?level=intermediate
 
 
 ### ============================
 ###     UPDATE (PUT)
 ### ============================
-### 🔄 Actualizar un estudiante completo (ejemplo: id = 8)
+### Actualizar un estudiante completo (ejemplo: id = 8)
 PUT {{apiUrl}}/students/{{idPrueba}}
 Content-Type: {{contentType}}
 
@@ -69,7 +69,7 @@ Content-Type: {{contentType}}
 ### ============================
 ###     PATCH (PARCIAL)
 ### ============================
-### ✏ Actualizar solo un campo (ejemplo: cambiar estado activo de id = 8)
+### Actualizar solo un campo (ejemplo: cambiar estado activo de id = 8)
 PATCH {{apiUrl}}/students/{{idPrueba}}
 Content-Type: {{contentType}}
 
@@ -81,5 +81,5 @@ Content-Type: {{contentType}}
 ### ============================
 ###     DELETE
 ### ============================
-### 🗑 Eliminar estudiante por ID (ejemplo: id = 8)
+### Eliminar estudiante por ID (ejemplo: id = 8)
 DELETE {{apiUrl}}/students/{{idPrueba}}
