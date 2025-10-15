@@ -147,7 +147,7 @@ Se envía una solicitud **DELETE** al endpoint /students con el id del estudiant
 
 ### El comando es: 
 ```bash
-    curl -i -X PATCH http://localhost:4000/students/8 -H "Content-Type: application/json" -d '{"active":false}'
+    curl -i -X DELETE http://localhost:4000/students/8
 ```
 
 ### El comando podemos dividirlo en varias secciones: 
