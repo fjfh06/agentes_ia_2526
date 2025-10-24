@@ -1,0 +1,19 @@
+# Git ignore sirve para indicar a git, que ficheros debe de hacer seguimiento o no
+# y por tanto no subir a github
+
+# ---- variables
+.env
+
+# ---- archivos del sistema
+Thumbs.db
+DS_Store
+
+# ---- dependencias
+node_modules/
+
+# ---- directorios
+dist/
+build/
+
+# logs
+npm-debug.log*
