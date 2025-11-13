@@ -1,0 +1,45 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ia-net
+
+  backend:
+    build: ./backend
+    container_name: mini-backend
+    restart: unless-stopped
+    environment:
+      - MIN_PORT=3002
+      - HOST=0.0.0.0
+      - NODE_ENV=production
+      - AI_API_URL=http://ollama:11434
+      - AI_MODEL=llama3.2:1b
+      - SERVER_URL
+    depends_on:
+      - ollama
+    ports:
+      - "3002:3002"
+    networks:
+      - ia-net
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: unless-stopped
+    ports: 
+      - "8080:80"
+    networks:
+      - ia-net
+
+volumes:
+  ollama_data:
+
+networks:
+  ia-net:
+    driver: bridge
