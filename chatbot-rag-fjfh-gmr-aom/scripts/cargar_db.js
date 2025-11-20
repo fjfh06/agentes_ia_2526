@@ -7,8 +7,8 @@ config();
 
 // Función para inicializar la BD
 function initializeDB() {
-  // Crear BD en datos/emb_vectores.db
-  const db = new sqlite3('datos/emb_vectores.db');
+  // Crear BD en datos/rof_vectores.db
+  const db = new sqlite3('datos/rof_vectores.db');
   
   // Crear tabla 'fragmentos' con estructura especificada
   db.exec(`
@@ -75,7 +75,7 @@ function insertarFragmentosDB(db, fragmentos) {
   insertMany(fragmentos);
   
   console.log(`✅ Insertados ${fragmentos.length} fragmentos en BD: 87`);
-  console.log(`✅ Tamaño de archivo: ${(statSync('datos/emb_vectores.db').size / (1024 * 1024)).toFixed(2)} MB`);
+  console.log(`✅ Tamaño de archivo: ${(statSync('datos/rof_vectores.db').size / (1024 * 1024)).toFixed(2)} MB`);
 }
 
 // Función para validar integridad
@@ -86,7 +86,7 @@ function verificarBD(db) {
   console.log(`  Fragmentos en BD: ${count.total}`);
   
   // Muestra tamaño del archivo .db
-  const stats = statSync('datos/emb_vectores.db');
+  const stats = statSync('datos/rof_vectores.db');
   console.log(`  Tamaño de archivo: ${(stats.size / (1024 * 1024)).toFixed(2)} MB`);
   
   // Valida integridad
