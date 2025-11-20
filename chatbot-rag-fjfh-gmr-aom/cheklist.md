@@ -29,7 +29,7 @@
 - [ ] **Commit:** `feat: process_rof`
 
 ## 🟧 FASE 3 — Generación de embeddings
-**Responsable:** Francisco Javier Fernández
+**Responsable:** Gregorio López
 - [ ] Script: `generar_embeddings.js`
 - [ ] Comprobar conexión a Ollama
 - [ ] Generar embedding para cada fragmento
