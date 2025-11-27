@@ -17,18 +17,21 @@ sendBtn.addEventListener('click', () => {
     // Aquí se puede agregar la respuesta del bot
     const botMsg = document.createElement('div');
     botMsg.classList.add('message', 'bot-message');
-    try {
-    const r = fetch("http://localhost:3000/consultar", {
+    fetch("http://localhost:3000/consultar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pregunta: message })
-    }).then(r => r.json());
-
-    //showStatus(r.respuesta || "Ok", r.ok);
-    botMsg.textContent = r.respuesta;
-  } catch {
-    botMsg.textContent = "Error al conectar con el servidor.";
-  }
+    })
+    .then(response => response.json())
+    .then(data => {
+      botMsg.textContent = data.respuesta || "No hay respuesta del servidor.";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    })
+    .catch(error => {
+      botMsg.textContent = "❌ Error al conectar con el servidor.";
+      console.error(error);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
     chatBox.appendChild(botMsg);
 
     chatBox.scrollTop = chatBox.scrollHeight;
