@@ -5,6 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node backend/server.js",
     "procesar": "node scripts/procesar_rof.js",
     "embeddings": "node scripts/generar_embeddings.js",
     "cargar_db": "node scripts/cargar_db.js",

@@ -40,17 +40,17 @@
 
 ## 🟧 FASE 4 — Base de Datos SQLite
 **Responsable:** Gonzalo Mansera
-- [ ] Script: `cargar_bd.js`
-- [ ] Crear BD `rof_vectores.db`
-- [ ] Crear tabla `fragmentos`
-- [ ] Insertar datos desde `embeddings.json` con transacción
-- [ ] Evitar duplicados
-- [ ] Mostrar progreso
-- [ ] Verificar integridad
-- [ ] **Commit:** `feat: load_db`
+- [x] Script: `cargar_bd.js`
+- [x] Crear BD `rof_vectores.db`
+- [x] Crear tabla `fragmentos`
+- [x] Insertar datos desde `embeddings.json` con transacción
+- [x] Evitar duplicados
+- [x] Mostrar progreso
+- [x] Verificar integridad
+- [x] **Commit:** `feat: load_db`
 
 ## 🟧 FASE 5 — Búsqueda Semántica
-**Responsable:** Gonzalo Mansera 
+**Responsable:** Angel Ortega  
 - [ ] Script: `test_busqueda.js`
 - [ ] Función de similitud de coseno
 - [ ] Generar embedding de consulta
@@ -61,12 +61,12 @@
 
 ## 🟧 FASE 6 — Dockerización
 **Responsable:** Gonzalo Mansera 
-- [ ] Crear `docker-compose.yml`
-- [ ] Añadir servicio de Ollama
-- [ ] Probar con `docker compose up -d`
-- [ ] Descargar modelos dentro del contenedor
-- [ ] Probar `/api/tags`
-- [ ] **Commit:** `feat: docker-compose`
+- [x] Crear `docker-compose.yml`
+- [x] Añadir servicio de Ollama
+- [x] Probar con `docker compose up -d`
+- [x] Descargar modelos dentro del contenedor
+- [x] Probar `/api/tags`
+- [x] **Commit:** `feat: docker-compose`
 
 ## 🟩 FASE 7 — Documentación (README.md)
 **Responsable:** Ángel Ortega
