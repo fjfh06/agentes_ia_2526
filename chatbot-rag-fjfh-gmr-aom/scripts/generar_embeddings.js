@@ -1,11 +1,12 @@
 import fs from "fs";
-import { config } from "dotenv";   
-config();
+import dotenv from "dotenv"; 
+dotenv.config();
 
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434";
+const OLLAMA_URL = process.env.OLLAMA_URL || "http://192.168.50.99:11434";
+console.log(OLLAMA_URL);
 const MODEL = process.env.OLLAMA_MODEL_EMBEDDINGS || "nomic-embed-text";
 
-async function generarEmbedding(texto) {
+export async function generarEmbedding(texto) {
     try {
         const response = await fetch(`${OLLAMA_URL}/api/embeddings`, {
             method: "POST",

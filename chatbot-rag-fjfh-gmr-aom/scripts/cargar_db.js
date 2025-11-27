@@ -66,7 +66,7 @@ function insertarFragmentosDB(db, fragmentos) {
           fragment.contenido,
           fragment.fuente || null,
           fragment.pagina || null,
-          embeddingBuffer
+          JSON.stringify(embeddingBuffer)
         );
       }
     }
