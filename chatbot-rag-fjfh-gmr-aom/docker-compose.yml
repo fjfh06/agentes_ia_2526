@@ -1,6 +1,18 @@
 version: "3.9"
 
 services:
+  frontend:
+    build: ./frontend
+    container_name: chatbot_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      - VITE_BACKEND_URL=http://backend:3000
+    volumes:
+      - ./frontend:/app
+
   backend:
     build: .
     container_name: chatbot_backend
@@ -11,7 +23,7 @@ services:
     environment:
       - OLLAMA_HOST=http://ollama_rag:11434
     volumes:
-      - .:/app
+      - ./backend:/app/backend
 
   ollama_rag:
     image: ollama/ollama:latest
