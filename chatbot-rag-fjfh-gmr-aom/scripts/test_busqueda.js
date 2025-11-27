@@ -55,11 +55,15 @@ export async function buscarFragmentosSimilares(consulta, limite = 3) {
 
     console.log("📍 Resultados (similitud):");
 
-    resultados.slice(0, limite).forEach((r, i) => {
-        console.log(`${i + 1}. [${r.similitud.toFixed(4)}] "${r.contenido.substring(0, 120)}..."`);
-    });
+    let salida = "";
 
+    resultados.slice(0, limite).forEach((r, i) => {
+        salida += `${i + 1}. [${r.similitud.toFixed(4)}] "${r.contenido}"` + "\n";
+    });
+    
     db.close();
+
+    return salida;
 }
 
 // -------------------------------
@@ -70,5 +74,3 @@ async function main() {
     await buscarFragmentosSimilares("¿dime los deberes de los participantes?");
     await buscarFragmentosSimilares("dime el horario");
 }
-
-main();
