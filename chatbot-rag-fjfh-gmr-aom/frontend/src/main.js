@@ -14,9 +14,7 @@ sendBtn.addEventListener('click', () => {
     userMsg.textContent = message;
     chatBox.appendChild(userMsg);
 
-    // Aquí se puede agregar la respuesta del bot
-    const botMsg = document.createElement('div');
-    botMsg.classList.add('message', 'bot-message');
+    // Llamada al servidor
     fetch("http://localhost:3000/consultar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -24,20 +22,29 @@ sendBtn.addEventListener('click', () => {
     })
     .then(response => response.json())
     .then(data => {
+
+      // CREAS el mensaje del bot solo cuando ya tienes la respuesta
+      const botMsg = document.createElement('div');
+      botMsg.classList.add('message', 'bot-message');
       botMsg.textContent = data.respuesta || "No hay respuesta del servidor.";
+      chatBox.appendChild(botMsg);
+
       chatBox.scrollTop = chatBox.scrollHeight;
     })
     .catch(error => {
+      const botMsg = document.createElement('div');
+      botMsg.classList.add('message', 'bot-message');
       botMsg.textContent = "❌ Error al conectar con el servidor.";
+      chatBox.appendChild(botMsg);
+
       console.error(error);
       chatBox.scrollTop = chatBox.scrollHeight;
     });
-    chatBox.appendChild(botMsg);
 
-    chatBox.scrollTop = chatBox.scrollHeight;
     userInput.value = '';
   }
 });
+
 
 // Permitir enviar con Enter
 userInput.addEventListener('keypress', (e) => {

@@ -29,7 +29,7 @@ function calcularSimilitud(v1, v2) {
 // -------------------------------
 // 2. Búsqueda semántica
 // -------------------------------
-async function buscarFragmentosSimilares(consulta, limite = 3) {
+export async function buscarFragmentosSimilares(consulta, limite = 3) {
     console.log(`\n🔍 Buscando fragmentos similares a: "${consulta}"\n`);
 
     // Obtenemos el embedding de la consulta del Usuario
