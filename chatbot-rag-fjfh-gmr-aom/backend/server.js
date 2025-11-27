@@ -43,12 +43,11 @@ app.post('/consultar', (req, res) => {
     // Llamas a tu funcion asincrona
     buscarFragmentosSimilares(pregunta)
         .then(respuesta => {
-
             // Aqui ya tienes la respuesta
             res.json({
                 success: true,
                 pregunta,
-                respuesta
+                respuesta: respuesta
             });
 
         })
