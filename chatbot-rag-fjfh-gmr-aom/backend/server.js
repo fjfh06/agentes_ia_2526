@@ -3,7 +3,7 @@
 import { config } from "dotenv";
 import express from "express";
 import cors from "cors";
-import { buscarFragmentosSimilares } from "../scripts/test_busqueda.js";
+import { buscarFragmentosSimilares } from "./scripts/test_busqueda.js";
 
 config();
 

@@ -6,7 +6,7 @@ dotenv.config();
 
 const OLLAMA_URL = process.env.OLLAMA_URL || "http://192.168.50.99:11434";
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL_EMBEDDINGS || "nomic-embed-text";
-const DB_PATH = process.env.DB_PATH || "./datos/rof_vectores.db";
+const DB_PATH = process.env.DB_PATH || "./backend/datos/rof_vectores.db";
 
 
 // -------------------------------

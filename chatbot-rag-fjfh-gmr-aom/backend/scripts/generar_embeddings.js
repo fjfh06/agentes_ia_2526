@@ -41,7 +41,7 @@ async function procesarTodos() {
     }
 
     // Cargar fragmentos
-    const chunks = JSON.parse(fs.readFileSync("./datos/chunks.json", "utf8"));
+    const chunks = JSON.parse(fs.readFileSync("./backend/datos/chunks.json", "utf8"));
     console.log(`📝 Cargados ${chunks.length} fragmentos de datos/chunks.json\n`);
 
     const resultados = [];
@@ -75,7 +75,7 @@ async function procesarTodos() {
     const seconds = ((end - start) / 1000).toFixed(2);
 
     // Guardar embeddings
-    fs.writeFileSync("./datos/embeddings.json", JSON.stringify(resultados, null, 2));
+    fs.writeFileSync("./backend/datos/embeddings.json", JSON.stringify(resultados, null, 2));
 
     console.log("\n\n✅ Embeddings generados exitosamente");
     console.log(`⏱  Tiempo total: ${seconds} segundos`);
