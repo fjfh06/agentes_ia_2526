@@ -20,10 +20,11 @@ services:
       - "3000:3000"
     depends_on:
       - ollama_rag
-    environment:
-      - OLLAMA_HOST=http://ollama_rag:11434
+    env_file: 
+      - .env                       # <-- cargamos todas las variables de entorno
     volumes:
       - ./backend:/app/backend
+    network_mode: "host"            # <-- importante para acceder a OLLAMA_URL en tu red local (192.168.50.99)
 
   ollama_rag:
     image: ollama/ollama:latest
