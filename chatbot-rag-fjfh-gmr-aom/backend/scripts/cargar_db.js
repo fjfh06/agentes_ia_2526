@@ -8,7 +8,7 @@ config();
 // Función para inicializar la BD
 function initializeDB() {
   // Crear BD en datos/rof_vectores.db
-  const db = new sqlite3('datos/rof_vectores.db');
+  const db = new sqlite3('backend/datos/rof_vectores.db');
   
   // Crear tabla 'fragmentos' con estructura especificada
   db.exec(`
@@ -31,7 +31,7 @@ function initializeDB() {
 function insertarFragmentosDB(db, fragmentos) {
   // Leer datos/embeddings.json
   const embeddingsData = JSON.parse(
-    readFileSync('datos/embeddings.json', 'utf-8')
+    readFileSync('backend/datos/embeddings.json', 'utf-8')
   );
   
   // Preparar statement para inserción
@@ -113,7 +113,7 @@ function main() {
     
     // Cargar fragmentos desde JSON
     const fragmentos = JSON.parse(
-      readFileSync('datos/embeddings.json', 'utf-8')
+      readFileSync('backend/datos/embeddings.json', 'utf-8')
     );
     
     console.log(`\nInsertando ${fragmentos.length} fragmentos...`);
