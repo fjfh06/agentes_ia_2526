@@ -41,7 +41,7 @@ async function procesarTodos() {
 
     // Cargar fragmentos
     const chunks = JSON.parse(fs.readFileSync("./backend/datos/chunks.json", "utf8"));
-    console.log(`📝 Cargados ${chunks.length} fragmentos de datos/chunks.json\n`);
+    console.log(`📝 Cargados ${chunks.length} fragmentos de backend/datos/chunks.json\n`);
 
     const resultados = [];
     const total = chunks.length;

@@ -7,7 +7,7 @@ config();
  * @returns Retorna el array de objetos (chunks)
  */
 export function procesarROF() {
-  const ruta = "datos/rof.txt";
+  const ruta = "backend/datos/rof.txt";
   const texto = fs.readFileSync(ruta, "utf8");
 
   let parrafos = texto
@@ -50,7 +50,7 @@ export function procesarROF() {
   }
 
   fs.writeFileSync(
-    "datos/chunks.json",
+    "backend/datos/chunks.json",
     JSON.stringify(chunks, null, 2),
     "utf8"
   );
