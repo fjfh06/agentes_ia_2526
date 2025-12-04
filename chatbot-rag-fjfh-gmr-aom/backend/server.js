@@ -34,8 +34,6 @@ async function preguntarIA(prompt) {
                 stream: false
             })
         });
-        console.log(MODEL_IA)
-        console.log(OLLAMA_URL)
 
         if (!response.ok) throw new Error("Error al conectar con Ollama");
 
@@ -83,15 +81,23 @@ app.post('/consultar', async (req, res) => {
         const fragmentos = await buscarFragmentosSimilares(pregunta);
 
         // 2. Crear prompt para la IA (pregunta + fragmentos)
+
         const promptIA = `
-PREGUNTA DEL USUARIO:
+Eres un asistente que responde SOLO usando la información del contexto.
+
+PREGUNTA:
 ${pregunta}
 
-FRAGMENTOS RELEVANTES (contexto):
-${fragmentos}
+CONTEXTO (fragmentos relevantes):
+${JSON.stringify(fragmentos, null, 2)}
 
-RESPONDE AL USUARIO DE FORMA CLARA Y UTIL:
-        `;
+INSTRUCCIONES:
+- Si el contexto NO contiene información útil o relacionada con la pregunta → responde EXACTAMENTE: "No dispongo de informacion suficiente".
+- Si la respuesta SI esta en el contexto → responde con un máximo de 150 caracteres.
+- No inventes datos que no estén en el contexto.
+- Responde de forma clara, directa y util.
+`;
+
 
         // 3. Preguntar a la IA
         const respuestaIA = await preguntarIA(promptIA);
