@@ -16,6 +16,42 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ================================
+//   CONFIG OLLAMA + FUNCION IA
+// ================================
+const OLLAMA_URL = process.env.OLLAMA_URL || "http://192.168.50.99:11434";
+const MODEL_IA = process.env.OLLAMA_MODEL_LLM || "mistral";
+
+// Funcion que llama a la IA igual que generarEmbedding
+async function preguntarIA(prompt) {
+    try {
+        const response = await fetch(`${OLLAMA_URL}/api/generate`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                model: MODEL_IA,
+                prompt: prompt,
+                stream: false
+            })
+        });
+        console.log(MODEL_IA)
+        console.log(OLLAMA_URL)
+
+        if (!response.ok) throw new Error("Error al conectar con Ollama");
+
+        const data = await response.json();
+        return data.response;
+
+    } catch (err) {
+        console.error("Error preguntando a IA:", err.message);
+        return null;
+    }
+}
+
+// ================================
+//        RUTAS API
+// ================================
+
 // Bienvenida
 app.get('/', (req,res) => {
     res.json({
@@ -27,8 +63,8 @@ app.get('/', (req,res) => {
     })
 });
 
-// ------ AQUI EL ENDPOINT QUE QUIERES ------
-app.post('/consultar', (req, res) => {
+// ------ ENDPOINT PRINCIPAL ------
+app.post('/consultar', async (req, res) => {
     console.log("Peticion POST recibida en /consultar");
 
     const { pregunta } = req.body;
@@ -39,29 +75,47 @@ app.post('/consultar', (req, res) => {
             message: "Debes enviar una 'pregunta' en el body"
         });
     }
-    console.log(pregunta)
-    // Llamas a tu funcion asincrona
-    buscarFragmentosSimilares(pregunta)
-        .then(respuesta => {
-            // Aqui ya tienes la respuesta
-            res.json({
-                success: true,
-                pregunta,
-                respuesta: respuesta
-            });
 
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            res.status(500).json({
-                success: false,
-                message: "Error interno al procesar la pregunta"
-            });
+    console.log(pregunta);
+
+    try {
+        // 1. Obtener fragmentos similares
+        const fragmentos = await buscarFragmentosSimilares(pregunta);
+
+        // 2. Crear prompt para la IA (pregunta + fragmentos)
+        const promptIA = `
+PREGUNTA DEL USUARIO:
+${pregunta}
+
+FRAGMENTOS RELEVANTES (contexto):
+${fragmentos}
+
+RESPONDE AL USUARIO DE FORMA CLARA Y UTIL:
+        `;
+
+        // 3. Preguntar a la IA
+        const respuestaIA = await preguntarIA(promptIA);
+
+        // 4. Enviar respuesta final
+        res.json({
+            success: true,
+            pregunta,
+            fragmentos,
+            respuesta: respuestaIA
         });
+
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error interno al procesar la pregunta"
+        });
+    }
 });
 
-
-// Iniciar servidor
+// ================================
+//        INICIAR SERVIDOR
+// ================================
 app.listen(PORT, HOST, () => {
     console.log(`Server ChatBot --> ${SERVER_URL}:${PORT}`);
 });
