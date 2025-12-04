@@ -1,5 +1,6 @@
 import './style.css'
 import viteLogo from '/vite.svg'
+const API_HOST = window.location.hostname || 'localhost';
 
 // Ejemplo simple para agregar mensajes al chat
 const chatBox = document.getElementById('chatBox');
@@ -15,7 +16,7 @@ sendBtn.addEventListener('click', () => {
     chatBox.appendChild(userMsg);
 
     // Llamada al servidor
-    fetch("http://localhost:3000/consultar", {
+    fetch(`http://${API_HOST}:3000/consultar`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pregunta: message })
