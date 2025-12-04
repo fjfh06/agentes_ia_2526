@@ -92,9 +92,10 @@ CONTEXTO (fragmentos relevantes):
 ${JSON.stringify(fragmentos, null, 2)}
 
 INSTRUCCIONES:
-- Si el contexto NO contiene información útil o relacionada con la pregunta → responde EXACTAMENTE: "No dispongo de informacion suficiente".
+- Responde a la PREGUNTA **EXCLUSIVAMENTE** basándote en los fragmentos del CONTEXTO proporcionado.
+- Si la respuesta a la PREGUNTA **NO puede ser construida** con la información de los fragmentos → responde EXACTAMENTE: "No dispongo de informacion suficiente".
 - Si la respuesta SI esta en el contexto → responde con un máximo de 150 caracteres.
-- No inventes datos que no estén en el contexto.
+- No inventes, deduzcas, ni incluyas datos que no estén explícitamente en el contexto.
 - Responde de forma clara, directa y util.
 `;
 
