@@ -11,7 +11,7 @@
     "cargar_db": "node backend/scripts/cargar_db.js",
     "ingesta": "npm run procesar && npm run embeddings && npm run cargarbd",
     "test_busqueda": "node backend/scripts/test_busqueda.js",
-    "dev": "nodemon --watch backend/scripts scripts/test_busqueda.js"
+    "dev": "nodemon --watch backend/scripts backend/scripts/test_busqueda.js"
   },
   "keywords": [],
   "author": "",
