@@ -2,10 +2,6 @@ import fs from "fs";
 import { config } from "dotenv";
 config();
 
-/**
- * Esta funcion procesa el rof.txt y a partir de eso, crea un array de objetos (chunks) y guarda el resultado en chunks.json y muestra por consola unas estadisticas
- * @returns Retorna el array de objetos (chunks)
- */
 export function procesarROF() {
   const ruta = "backend/datos/rof.txt";
   const texto = fs.readFileSync(ruta, "utf8");
@@ -55,24 +51,10 @@ export function procesarROF() {
     "utf8"
   );
 
-  const total = chunks.length;
-  const tamanoPromedio =
-    chunks.reduce((acc, c) => acc + c.contenido.length, 0) / total;
-
-  const primerFragmento = chunks[0].contenido;
-  const longitudMax = 50;
-  const primerFragmentoProcesado =
-    primerFragmento.length > longitudMax
-      ? primerFragmento.slice(0, longitudMax).trim() + "..."
-      : primerFragmento;
-
-  console.log("✅ ROF procesado exitosamente");
-  console.log(`📊 Fragmentos generados: ${total}`);
-  console.log(`📏 Tamaño promedio: ${Math.round(tamanoPromedio)} caracteres`);
-  console.log(`📄 Primer fragmento: \"${primerFragmentoProcesado}\"`);
-  console.log(`⚠ Fragmentos descartados: ${descartados.length} (muy pequeños)`);
-
   return chunks;
 }
 
-procesarROF();
+// ❗ NO ejecutar en import — solo si se ejecuta directamente
+if (import.meta.url === `file://${process.argv[1]}`) {
+  procesarROF();
+}

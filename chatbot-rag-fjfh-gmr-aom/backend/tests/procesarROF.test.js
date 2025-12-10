@@ -1,15 +1,29 @@
-import fs from "fs";
-import { procesarROF } from "../backend/datos/procesar_rof.js";
+import { jest } from '@jest/globals';
 
-jest.mock("fs");
+// Crear mocks antes de importar
+const mockReadFileSync = jest.fn();
+const mockWriteFileSync = jest.fn();
 
-describe("procesarROF()", () => {
+// Mock manual de fs
+await jest.unstable_mockModule('fs', () => ({
+  default: {
+    readFileSync: mockReadFileSync,
+    writeFileSync: mockWriteFileSync
+  },
+  readFileSync: mockReadFileSync,
+  writeFileSync: mockWriteFileSync
+}));
+
+// Importar el módulo después de los mocks
+const { procesarROF } = await import('../scripts/procesar_rof.js');
+
+describe('procesarROF()', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  test("debe procesar el archivo y generar chunks correctamente", () => {
+  test('debe procesar el archivo y generar chunks correctamente', () => {
 
     // Simulación del contenido de rof.txt
     const contenidoFalso = `
@@ -22,28 +36,28 @@ describe("procesarROF()", () => {
       dentro de un chunk sin exceder los limites de longitud.
     `;
 
-    fs.readFileSync.mockReturnValue(contenidoFalso);
-    fs.writeFileSync.mockImplementation(() => {});
+    mockReadFileSync.mockReturnValue(contenidoFalso);
+    mockWriteFileSync.mockImplementation(() => {});
 
     const resultado = procesarROF();
 
     // --- VALIDACIONES ---
-    expect(fs.readFileSync).toHaveBeenCalled();
-    expect(fs.writeFileSync).toHaveBeenCalled();
+    expect(mockReadFileSync).toHaveBeenCalled();
+    expect(mockWriteFileSync).toHaveBeenCalled();
 
     // 2 parrafos largos deberían generar chunks
     expect(resultado.length).toBeGreaterThan(0);
 
     // Cada chunk debe tener estructura correcta
     resultado.forEach(chunk => {
-      expect(chunk).toHaveProperty("id");
-      expect(chunk).toHaveProperty("contenido");
-      expect(chunk).toHaveProperty("fuente", "rof.txt");
-      expect(chunk).toHaveProperty("pagina");
+      expect(chunk).toHaveProperty('id');
+      expect(chunk).toHaveProperty('contenido');
+      expect(chunk).toHaveProperty('fuente', 'rof.txt');
+      expect(chunk).toHaveProperty('pagina');
     });
   });
 
-  test("debe descartar parrafos pequeños", () => {
+  test('debe descartar parrafos pequeños', () => {
     const contenido = `
       corto
 
@@ -51,8 +65,8 @@ describe("procesarROF()", () => {
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer.
     `;
 
-    fs.readFileSync.mockReturnValue(contenido);
-    fs.writeFileSync.mockImplementation(() => {});
+    mockReadFileSync.mockReturnValue(contenido);
+    mockWriteFileSync.mockImplementation(() => {});
 
     const chunks = procesarROF();
 
