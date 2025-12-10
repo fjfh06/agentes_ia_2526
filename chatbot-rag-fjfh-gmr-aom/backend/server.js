@@ -38,7 +38,7 @@ app.use(rateLimit({
 
 const OLLAMA_URL = process.env.OLLAMA_URL || "http://192.168.50.99:11434";
 
-const MODEL_IA = process.env.OLLAMA_MODEL_LLM || "mistral";
+const MODEL_IA = process.env.OLLAMA_MODEL_LLM || "mistral:instruct";
 
 // ================================
 //       FUNCIONES AUXILIARES

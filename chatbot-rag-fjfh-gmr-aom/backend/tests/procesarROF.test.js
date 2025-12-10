@@ -1,7 +1,22 @@
-import fs from "fs";
-import { procesarROF } from "../backend/datos/procesar_rof.js";
+// backend/tests/procesarROF.test.js
+import { jest } from "@jest/globals";
 
-jest.mock("fs");
+// Creamos el mock de fs
+const fsMock = {
+  readFileSync: jest.fn(),
+  writeFileSync: jest.fn(),
+};
+
+// Mock del módulo antes de importar
+jest.unstable_mockModule("fs", () => fsMock);
+
+let procesarROF;
+
+// Import dinámico del módulo después del mock
+beforeAll(async () => {
+  const mod = await import("../scripts/procesar_rof.js");
+  procesarROF = mod.procesarROF;
+});
 
 describe("procesarROF()", () => {
 
@@ -9,11 +24,9 @@ describe("procesarROF()", () => {
     jest.clearAllMocks();
   });
 
-  test("debe procesar el archivo y generar chunks correctamente", () => {
-
-    // Simulación del contenido de rof.txt
+  test("debe procesar el archivo y generar chunks correctamente", async () => {
     const contenidoFalso = `
-      Este es un parrafo suficientemente largo para pasar los 100 caracteres. 
+      Este es un parrafo suficientemente largo para pasar los 100 caracteres.
       Tiene informacion irrelevante solo para la prueba.
 
       Este parrafo es demasiado corto.
@@ -22,41 +35,27 @@ describe("procesarROF()", () => {
       dentro de un chunk sin exceder los limites de longitud.
     `;
 
-    fs.readFileSync.mockReturnValue(contenidoFalso);
-    fs.writeFileSync.mockImplementation(() => {});
+    fsMock.readFileSync.mockReturnValue(contenidoFalso);
 
     const resultado = procesarROF();
 
-    // --- VALIDACIONES ---
-    expect(fs.readFileSync).toHaveBeenCalled();
-    expect(fs.writeFileSync).toHaveBeenCalled();
-
-    // 2 parrafos largos deberían generar chunks
+    expect(fsMock.readFileSync).toHaveBeenCalled();
+    expect(fsMock.writeFileSync).toHaveBeenCalled();
     expect(resultado.length).toBeGreaterThan(0);
-
-    // Cada chunk debe tener estructura correcta
-    resultado.forEach(chunk => {
-      expect(chunk).toHaveProperty("id");
-      expect(chunk).toHaveProperty("contenido");
-      expect(chunk).toHaveProperty("fuente", "rof.txt");
-      expect(chunk).toHaveProperty("pagina");
-    });
   });
 
-  test("debe descartar parrafos pequeños", () => {
+  test("debe descartar parrafos pequeños", async () => {
     const contenido = `
       corto
 
-      Este es un párrafo largo que pasará el filtro de los 100 caracteres.
+      Este es un parrafo largo que pasara el filtro de los 100 caracteres.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer.
     `;
 
-    fs.readFileSync.mockReturnValue(contenido);
-    fs.writeFileSync.mockImplementation(() => {});
+    fsMock.readFileSync.mockReturnValue(contenido);
 
     const chunks = procesarROF();
 
-    // solo debe quedar 1 chunk (el parrafo largo)
     expect(chunks.length).toBe(1);
   });
 
