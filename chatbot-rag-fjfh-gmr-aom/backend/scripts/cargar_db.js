@@ -45,23 +45,24 @@ function insertarFragmentosDB(db, fragmentos) {
     SELECT id FROM fragmentos WHERE contenido = ?
      `);
   
-  // Iniciar transacción para velocidad
+  // Iniciar transacción : Agrupa todas las inserciones en una transacción para acelerar. 
   const insertMany = db.transaction((fragments) => {
     for (const fragment of fragments) {
       // 1️⃣ Comprobar si ya existe
       const existe = checkDuplicate.get(fragment.contenido);
       if (existe) {
         console.log(`⏩ Saltado (duplicado): ${fragment.contenido}`);
+        continue; // 👈 Agregar continue aquí para saltar al siguiente
       }
-      // Buscar embedding correspondiente
+      // 👉 Busca en embeddings.json el embedding asociado al texto.
       const embData = embeddingsData.find(e => e.contenido === fragment.contenido);
       
       if (embData && embData.embedding) {
-        // Convertir array de embedding a Buffer (BLOB)
+        // 👉 Convierte el array de números a formato binario (Buffer) para SQLite.
         const embeddingBuffer = Buffer.from(
           new Float32Array(embData.embedding).buffer
         );
-        
+        //👉 Inserta el fragmento con todos sus datos.
         insert.run(
           fragment.contenido,
           fragment.fuente || null,
@@ -74,8 +75,8 @@ function insertarFragmentosDB(db, fragmentos) {
   
   insertMany(fragmentos);
   
-  console.log(`✅ Insertados ${fragmentos.length} fragmentos en BD: 87`);
-  console.log(`✅ Tamaño de archivo: ${(statSync('datos/rof_vectores.db').size / (1024 * 1024)).toFixed(2)} MB`);
+  console.log(`✅ Insertados ${fragmentos.length} fragmentos en BD`);
+  console.log(`✅ Tamaño de archivo: ${(statSync('backend/datos/rof_vectores.db').size / (1024 * 1024)).toFixed(2)} MB`);
 }
 
 // Función para validar integridad
@@ -135,5 +136,14 @@ function main() {
   }
 }
 
-// Ejecución principal
-main();
+// Exportar funciones
+export default {
+  initializeDB,
+  insertarFragmentosDB,
+  verificarBD
+};
+
+// Solo ejecutar main() si el archivo se ejecuta directamente (no cuando se importa)
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
