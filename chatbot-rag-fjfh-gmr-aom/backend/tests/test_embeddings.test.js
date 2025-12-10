@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import { generarEmbedding } from "./generar_embeddings.js";
+import { generarEmbedding } from "../scripts/generar_embeddings.js";
 
 const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434";
 
