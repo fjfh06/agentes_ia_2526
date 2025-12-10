@@ -3,18 +3,17 @@ dotenv.config();
 
 import { generarEmbedding } from "../scripts/generar_embeddings.js";
 
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434";
+const OLLAMA_URL = process.env.OLLAMA_URL || "https://jarvis.ieshlanz.es:11434";
 
 async function testEmbeddings() {
     console.log("🔄 Probando conexión con Ollama...");
 
-    try {
+    try { 
         const res = await fetch(`${OLLAMA_URL}/api/tags`);
         if (!res.ok) throw new Error();
         console.log(`✅ Ollama disponible en ${OLLAMA_URL}\n`);
     } catch (err) {
         console.error(`❌ No se pudo conectar a Ollama en ${OLLAMA_URL}`);
-        console.error("Ejecuta: ollama serve");
         return;
     }
 

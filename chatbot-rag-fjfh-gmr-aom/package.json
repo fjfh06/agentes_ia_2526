@@ -11,6 +11,7 @@
     "cargar_db": "node backend/scripts/cargar_db.js",
     "ingesta": "npm run procesar && npm run embeddings && npm run cargarbd",
     "test_busqueda": "node backend/scripts/test_busqueda.js",
+    "test-embeddings": "node backend/tests/test_embeddings.test.js",
     "dev": "nodemon --watch backend/scripts backend/scripts/test_busqueda.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },

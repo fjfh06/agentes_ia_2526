@@ -2,7 +2,7 @@ import fs from "fs";
 import dotenv from "dotenv"; 
 dotenv.config();
 
-const OLLAMA_URL = process.env.OLLAMA_URL || "http://192.168.50.99:11434";
+const OLLAMA_URL = process.env.OLLAMA_URL || "https://jarvis.ieshlanz.es:11434";
 const MODEL = process.env.OLLAMA_MODEL_EMBEDDINGS || "nomic-embed-text";
 
 export async function generarEmbedding(texto) {
