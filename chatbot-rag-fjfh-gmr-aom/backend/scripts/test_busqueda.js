@@ -12,7 +12,7 @@ const DB_PATH = process.env.DB_PATH || "./backend/datos/rof_vectores.db";
 // -------------------------------
 // 1. Similitud de coseno
 // -------------------------------
-function calcularSimilitud(v1, v2) {
+export function calcularSimilitud(v1, v2) {
     // Convertir v2 a array si viene como Buffer
     if (v2.data) v2 = Float32Array.from(v2.data);
 
