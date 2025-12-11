@@ -2,41 +2,41 @@
 
 ## 🟦 FASE 0 — Preparación del proyecto
 **Responsable:** Francisco Javier Fernández
-- [ ] Crear carpeta del proyecto
-- [ ] Inicializar repo (`git init`)
-- [ ] Crear rama `hito2/rag-embeddings`
-- [ ] Crear estructura de carpetas (`datos/`, `scripts/`, `backend/`)
-- [ ] Configurar `package.json` con scripts
-- [ ] Crear `.gitignore`
-- [ ] Colocar `rof.txt` en `/datos`
+- [x] Crear carpeta del proyecto
+- [x] Inicializar repo (`git init`)
+- [x] Crear rama `hito2/rag-embeddings`
+- [x] Crear estructura de carpetas (`datos/`, `scripts/`, `backend/`)
+- [x] Configurar `package.json` con scripts
+- [x] Crear `.gitignore`
+- [x] Colocar `rof.txt` en `/datos`
 
 ## 🟦 FASE 1 — Configuración: entorno y variables
 **Responsable:** Ángel Ortega 
-- [ ] Crear y configurar `.env`
-- [ ] Crear `.env.example`
-- [ ] Verificar funcionamiento de Ollama
-- [ ] Documentar configuración inicial en README (apartado instalación)
+- [x] Crear y configurar `.env`
+- [x] Crear `.env.example`
+- [x] Verificar funcionamiento de Ollama
+- [x] Documentar configuración inicial en README (apartado instalación)
 
 ## 🟦 FASE 2 — Procesamiento del ROF
 **Responsable:** Francisco Javier Fernández
-- [ ] Script: `procesar_rof.js`
-- [ ] Leer `rof.txt`
-- [ ] Dividir en fragmentos por `\n\n`
-- [ ] Filtrar fragmentos < 100 caracteres
-- [ ] Crear estructura de cada chunk
-- [ ] Mostrar estadísticas (nº, tamaño medio, descartados…)
-- [ ] Guardar `chunks.json`
-- [ ] **Commit:** `feat: process_rof`
+- [x] Script: `procesar_rof.js`
+- [x] Leer `rof.txt`
+- [x] Dividir en fragmentos por `\n\n`
+- [x] Filtrar fragmentos < 100 caracteres
+- [x] Crear estructura de cada chunk
+- [x] Mostrar estadísticas (nº, tamaño medio, descartados…)
+- [x] Guardar `chunks.json`
+- [x] **Commit:** `feat: process_rof`
 
 ## 🟧 FASE 3 — Generación de embeddings
 **Responsable:** Gregorio López
-- [ ] Script: `generar_embeddings.js`
-- [ ] Comprobar conexión a Ollama
-- [ ] Generar embedding para cada fragmento
-- [ ] Mostrar progreso
-- [ ] Guardar `embeddings.json`
-- [ ] Registrar tiempo y dimensión
-- [ ] **Commit:** `feat: generate_embeddings`
+- [x] Script: `generar_embeddings.js`
+- [x] Comprobar conexión a Ollama
+- [x] Generar embedding para cada fragmento
+- [x] Mostrar progreso
+- [x] Guardar `embeddings.json`
+- [x] Registrar tiempo y dimensión
+- [x] **Commit:** `feat: generate_embeddings`
 
 ## 🟧 FASE 4 — Base de Datos SQLite
 **Responsable:** Gonzalo Mansera
@@ -51,13 +51,13 @@
 
 ## 🟧 FASE 5 — Búsqueda Semántica
 **Responsable:** Angel Ortega  
-- [ ] Script: `test_busqueda.js`
-- [ ] Función de similitud de coseno
-- [ ] Generar embedding de consulta
-- [ ] Calcular similitudes contra todos los fragmentos
-- [ ] Ordenar y mostrar top N
-- [ ] Probar con varias consultas
-- [ ] **Commit:** `feat: test_search`
+- [x] Script: `test_busqueda.js`
+- [x] Función de similitud de coseno
+- [x] Generar embedding de consulta
+- [x] Calcular similitudes contra todos los fragmentos
+- [x] Ordenar y mostrar top N
+- [x] Probar con varias consultas
+- [x] **Commit:** `feat: test_search`
 
 ## 🟧 FASE 6 — Dockerización
 **Responsable:** Gonzalo Mansera 
@@ -70,16 +70,16 @@
 
 ## 🟩 FASE 7 — Documentación (README.md)
 **Responsable:** Ángel Ortega
-- [ ] Descripción del proyecto
-- [ ] Qué es RAG
-- [ ] Qué son los embeddings
-- [ ] Requisitos
-- [ ] Instalación
-- [ ] Ejecución completa (`npm run ingesta`)
-- [ ] Explicación de cada script
-- [ ] Estructura de datos (chunks, embeddings, BD)
-- [ ] Próximas fases
-- [ ] **Commit:** `docs: README`
+- [x] Descripción del proyecto
+- [x] Qué es RAG
+- [x] Qué son los embeddings
+- [x] Requisitos
+- [x] Instalación
+- [x] Ejecución completa (`npm run ingesta`)
+- [x] Explicación de cada script
+- [x] Estructura de datos (chunks, embeddings, BD)
+- [x] Próximas fases
+- [x] **Commit:** `docs: README`
 
 ## 🟩 FASE 8 — Checklist del proyecto
 **Responsable:** Gonzalo Mansera 
@@ -88,20 +88,20 @@
 
 ## 🟩 FASE 9 — Validación y Testing
 **Responsable:** Ángel Ortega
-- [ ] Crear `validacion.http`
-- [ ] Añadir pruebas:
+- [x] Crear `validacion.http`
+- [x] Añadir pruebas:
   - Conexión a Ollama
   - Verificar BD
   - Comprobar estructura del proyecto
-- [ ] Probar `npm run ingesta` completo
-- [ ] **Commit:** `test: validations`
+- [x] Probar `npm run ingesta` completo
+- [x] **Commit:** `test: validations`
 
 ## 🟩 FASE 10 — QA Final y Entrega
 **Responsable:** Ángel Ortega(con apoyo de todos)
-- [ ] Revisión completa del proyecto
-- [ ] Comprobar que todo funciona en orden
-- [ ] Verificar que `.env` no está en Git
-- [ ] Crear Pull Request
-- [ ] Añadir resumen + división del trabajo
-- [ ] Confirmar `Co-authored-by`
-- [ ] Entregar PR antes del plazo
+- [x] Revisión completa del proyecto
+- [x] Comprobar que todo funciona en orden
+- [x] Verificar que `.env` no está en Git
+- [x] Crear Pull Request
+- [x] Añadir resumen + división del trabajo
+- [x] Confirmar `Co-authored-by`
+- [x] Entregar PR antes del plazo

@@ -1,68 +1,82 @@
-# Documentación del Proyecto
+# Chatbot RAG - Documentación del Proyecto
 
-## 4.1.1 Descripción del proyecto
+## 1. Descripción General
 
-### Qué es RAG
-RAG (Retrieval-Augmented Generation) es una arquitectura que combina búsqueda de documentos con generación de texto. Recupera información relevante de una base de datos y la utiliza para generar respuestas precisas y contextualizadas.
+Este proyecto implementa un **Chatbot basado en RAG (Retrieval-Augmented Generation)** que procesa documentos, genera embeddings y responde consultas contextualizadas mediante búsqueda semántica.
 
-### Qué es un embedding
-Un embedding es una representación vectorial numérica de texto. Convierte palabras, frases o documentos en vectores de números en un espacio multidimensional, permitiendo medir similitud semántica entre textos.
+## 2. Conceptos Clave
 
-### Flujo de ingesta de datos
+### RAG (Retrieval-Augmented Generation)
+Arquitectura que combina búsqueda de documentos con generación de texto, recuperando información relevante para respuestas precisas y contextualizadas.
+
+### Embeddings
+Representación vectorial numérica de texto en espacio multidimensional, permitiendo medir similitud semántica entre contenidos.
+
+### Flujo de Ingesta
 1. Procesar y dividir documentos en fragmentos (chunks)
 2. Generar embeddings para cada fragmento
-3. Almacenar vectores y fragmentos en base de datos
-4. Permitir búsqueda por similitud semántica
+3. Almacenar vectores en base de datos
+4. Realizar búsqueda por similitud semántica
 
-## 4.1.2 Requisitos
+## 3. Requisitos
 
 - Node.js v18+
-- Docker
+- Docker y Docker Compose
 - Ollama
-- ROF en formato texto
+- Documentos en formato texto
 
-## 4.1.3 Instalación
-
-1. Clonar repositorio: `git clone <url>`
-2. Instalar dependencias: `npm install`
-3. Descargar archivo ROF
-4. Configurar archivo `.env` con variables necesarias
-
-## 4.1.4 Ejecución completa
+## 4. Instalación
 
 ```bash
-npm run ingesta  # Ejecuta: procesar → embeddings → cargar-bd
+git clone <url>
+cd chatbot-rag-fjfh-gmr-aom
+npm install
+docker-compose up -d
 ```
 
-## 4.1.5 Scripts individuales
+## 5. Configuración
+
+Crear archivo `.env` con las variables necesarias:
+```
+DATABASE_PATH=./db/vectorstore.db
+MODEL_NAME=nomic-embed-text
+CHUNK_SIZE=1000
+OLLAMA_BASE_URL=http://ollama:11434
+```
+
+## 6. Docker Compose
+
+El archivo `docker-compose.yml` configura:
+- **Ollama**: Servicio de embeddings en puerto 11434
+- **SQLite**: Base de datos vectorial persistente
 
 ```bash
-npm run procesar      # Fase 1: Trocear ROF en chunks
-npm run embeddings    # Fase 2: Generar vectores
-npm run cargar-bd     # Fase 3: Cargar a base de datos
-npm run test-busqueda # Probar búsqueda por similitud
+docker-compose up -d      # Iniciar servicios
+docker-compose down       # Detener servicios
+docker-compose logs -f    # Ver logs
 ```
 
-## 4.1.6 Estructura de datos
+## 7. Ejecución
 
-- **chunks.json**: Fragmentos de texto procesados del documento original
-- **embeddings.json**: Vectores numéricos asociados a cada chunk
-- **Tabla fragmentos**: BD SQLite3 con chunks, embeddings y metadatos
+```bash
+npm run ingesta      # Procesar → embeddings → BD
+npm run procesar     # Fase 1: Trocear documentos
+npm run embeddings   # Fase 2: Generar vectores
+npm run cargar-bd    # Fase 3: Cargar a BD
+npm run test-busqueda # Probar búsqueda
+```
 
-## 4.1.7 ¿Qué es un embedding?
+## 8. Estructura del Proyecto
 
-- Representación vectorial de texto en espacio multidimensional
-- Textos similares generan vectores cercanos
-- Búsqueda por similitud de coseno para encontrar contenido relevante
+- `chunks.json` - Fragmentos procesados
+- `embeddings.json` - Vectores numéricos
+- `db/` - Base de datos SQLite3
+- `src/` - Código fuente
+- `docker-compose.yml` - Configuración de servicios
 
-## 4.1.8 Decisiones de diseño
+## 9. Decisiones de Diseño
 
-- **SQLite3**: Ligero, sin servidor, ideal para desarrollo
-- **nomic-embed-text**: Modelo eficiente y de código abierto
-- **Tamaño mínimo de fragmentos**: 100 caracteres para mantener contexto
-
-## 4.1.9 Próximas fases
-
-- Backend API para responder consultas con RAG
-- Frontend web para interfaz de usuario
-- Integración con modelos de lenguaje LLM
+- **SQLite3**: Ligero, sin servidor
+- **nomic-embed-text**: Modelo eficiente
+- **Docker Compose**: Orquestación de servicios
+- **Tamaño mínimo**: 100 caracteres por chunk
