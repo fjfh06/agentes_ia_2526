@@ -9,7 +9,7 @@
     "procesar": "node backend/scripts/procesar_rof.js",
     "embeddings": "node backend/scripts/generar_embeddings.js",
     "cargar_db": "node backend/scripts/cargar_db.js",
-    "ingesta": "npm run procesar && npm run embeddings && npm run cargarbd",
+    "ingesta": "npm run procesar && npm run embeddings && npm run cargar_db",
     "test_busqueda": "node backend/scripts/test_busqueda.js",
     "test-embeddings": "node backend/tests/test_embeddings.test.js",
     "dev": "nodemon --watch backend/scripts backend/scripts/test_busqueda.js",
