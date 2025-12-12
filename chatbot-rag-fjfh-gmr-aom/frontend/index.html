@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/main.js" defer></script>
+    <title>Chatbot RAG</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="brand">
+          <span class="brand-mark">AI</span>
+          <span class="brand-name">Chatbot ROF</span>
+        </div>
+        <h1>Asistente para consultas sobre el ROF</h1>
+        <p class="lede">
+          Haz preguntas en lenguaje natural y obtén respuestas respaldadas por el
+          Reglamento de Organización y Funciones.
+        </p>
+        <div class="tags">
+          <span>RAG</span>
+          <span>Embeddings</span>
+          <span>Búsqueda Semántica</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="card info-card">
+          <p class="eyebrow">Guía rápida</p>
+          <h2>¿Qué puedes preguntar?</h2>
+          <ul class="bullets">
+            <li>Funciones o responsabilidades de un área.</li>
+            <li>Procedimientos y políticas incluidas en el ROF.</li>
+            <li>Referencias rápidas a artículos o secciones.</li>
+          </ul>
+          <div class="info-footer">
+            <div class="chip">Precisión documental</div>
+            <div class="chip">Respuestas instantáneas</div>
+          </div>
+        </section>
+
+        <section class="card chat-card">
+          <div class="chat-top">
+            <div>
+              <p class="eyebrow">Chat en vivo</p>
+              <h2>Conversación</h2>
+            </div>
+            <div class="status">
+              <span class="status-dot"></span>
+              Backend listo
+            </div>
+          </div>
+
+          <div class="chat-shell">
+            <div class="chat-box" id="chatBox">
+              <!-- Aquí se insertan los mensajes -->
+            </div>
+            <div class="input-container">
+              <input type="text" id="userInput" placeholder="Escribe tu consulta aquí..." />
+              <button id="sendBtn">Enviar</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="footer">
+        <p>&copy; 2025 Chatbot ROF. Todos los derechos reservados.</p>
+      </footer>
+    </div>
+  </body>
+</html>

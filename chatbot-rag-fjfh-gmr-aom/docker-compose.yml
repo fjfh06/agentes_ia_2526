@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: chatbot_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      - VITE_BACKEND_URL=http://backend:3000
+    volumes:
+      - ./frontend:/app
+
+  backend:
+    build: .
+    container_name: chatbot_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ollama_rag
+    env_file: 
+      - .env                       # <-- cargamos todas las variables de entorno
+    volumes:
+      - ./backend:/app/backend
+   
+  ollama_rag:
+    image: ollama/ollama:latest
+    container_name: ollama_rag
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

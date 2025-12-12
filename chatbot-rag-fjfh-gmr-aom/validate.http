@@ -1,0 +1,134 @@
+### ================================
+### API CHATBOT + OLLAMA - TEST ENDPOINTS
+### ================================
+
+@base_url = {{$dotenv URL_BACKEND}}
+
+### ================================
+### 1. INFO GENERAL DE LA API
+### ================================
+GET {{base_url}}/
+Content-Type: application/json
+
+### ================================
+### 2. LISTAR MODELOS INSTALADOS
+### ================================
+GET {{base_url}}/tags
+Content-Type: application/json
+
+### ================================
+### 3. LISTAR MODELOS (ALIAS)
+### ================================
+GET {{base_url}}/modelos
+Content-Type: application/json
+
+### ================================
+### 4. HEALTH CHECK
+### ================================
+GET {{base_url}}/health
+Content-Type: application/json
+
+### ================================
+### 5. INFO DE UN MODELO ESPECÍFICO
+### ================================
+GET {{base_url}}/info/mistral:instruct
+Content-Type: application/json
+
+### ================================
+### 6. GENERAR TEXTO LIBRE
+### ================================
+POST {{base_url}}/generar
+Content-Type: application/json
+
+{
+    "prompt": "¿Qué es la inteligencia artificial?",
+    "modelo": "mistral:instruct"
+}
+
+### ================================
+### 7. GENERAR TEXTO SIN MODELO (USA DEFAULT)
+### ================================
+POST {{base_url}}/generar
+Content-Type: application/json
+
+{
+    "prompt": "Explica qué es Node.js en una frase"
+}
+
+### ================================
+### 8. GENERAR EMBEDDINGS
+### ================================
+POST {{base_url}}/embeddings
+Content-Type: application/json
+
+{
+    "texto": "Hola mundo, esto es una prueba",
+    "modelo": "mistral:instruct"
+}
+
+### ================================
+### 9. EMBEDDINGS SIN MODELO (USA DEFAULT)
+### ================================
+POST {{base_url}}/embeddings
+Content-Type: application/json
+
+{
+    "texto": "Embedding de prueba"
+}
+
+### ================================
+### 10. CONSULTAR CHATBOT CON CONTEXTO
+### ================================
+POST {{base_url}}/consultar
+Content-Type: application/json
+
+{
+    "pregunta": "¿Qué información tienes sobre inteligencia artificial?",
+    "modelo": "mistral:instruct"
+}
+
+### ================================
+### 11. CONSULTAR SIN MODELO (USA DEFAULT)
+### ================================
+POST {{base_url}}/consultar
+Content-Type: application/json
+
+{
+    "pregunta": "¿Cuáles son los beneficios de usar Node.js?"
+}
+
+### ================================
+### 12. TEST DE VALIDACIÓN - GENERAR SIN PROMPT (ERROR 400)
+### ================================
+POST {{base_url}}/generar
+Content-Type: application/json
+
+{
+    "modelo": "mistral"
+}
+
+### ================================
+### 13. TEST DE VALIDACIÓN - EMBEDDINGS SIN TEXTO (ERROR 400)
+### ================================
+POST {{base_url}}/embeddings
+Content-Type: application/json
+
+{
+    "modelo": "mistral"
+}
+
+### ================================
+### 14. TEST DE VALIDACIÓN - CONSULTAR SIN PREGUNTA (ERROR 400)
+### ================================
+POST {{base_url}}/consultar
+Content-Type: application/json
+
+{
+    "modelo": "mistral"
+}
+
+### ================================
+### 15. INFO DE MODELO INEXISTENTE (ERROR 404)
+### ================================
+GET {{base_url}}/info/modelo-que-no-existe
+Content-Type: application/json
